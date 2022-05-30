@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="feed.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Feed de notícias</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <nav class=" navbar mynavbar"><button onclick="mostrarNavbar()" id="botaoMenu"><img id="menu"
+                        src="../imagens/menu-4-32.png" alt="Menu branco"></button><img class="logo"
+                    src="../imagens/My project.png" alt="Silhueta de gato branco">
+            </nav>
+        </div>
+    </div>
+    <div class="row g-0">
+
+        <div class="col-md-3 p-3 mysidebar flex-shrink-0 bg-white" style="display:none;">
+
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button id="perfil" onmouseover="corPerfil()" onmouseout="corPerfil2()"
+                        class="mudacor btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#home-collapse" aria-expanded="true">
+                        <h5><img id="userOrange" src="../imagens/user-16.png" alt="Silhueta de usuário laranja"><img
+                                style="display:none" id="userWhite" src="../imagens/user-16-white.png"
+                                alt="Silhueta de usuário branca"><b>
+                                Perfil</b></h5>
+                    </button>
+
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                            <li><a href="../perfil/perfil.html" class="colocarsub link rounded">Página inicial</a></li>
+                            <li><a href="#" class="colocarsub link rounded">Amigos</a></li>
+                            <li><a href="#" class="colocarsub link rounded">Fotos</a></li>
+                            <li><a href="#" class="colocarsub link rounded">Eventos</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <hr>
+                <li class="mb-1">
+                    <button id="adocaoAnimais" onmouseover="corPatinha()" onmouseout="corPatinha2()"
+                        class="mudacor btn btn-toggle align-items-center rounded" data-bs-toggle="collapse"
+                        data-bs-target="#dashboard-collapse" aria-expanded="true">
+
+                        <h5><img id="pawOrange" src="../imagens/paw-16.png" alt="Patinha laranja"><img
+                                style="display:none" id="pawWhite" src="../imagens/paw-16-white.png"
+                                alt="Patinha branca"> <b>Adoção de animais</b>
+                        </h5>
+                    </button>
+                    <div class="collapse show" id="dashboard-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                            <li><a href="#" class="colocarsub link rounded">Adote um animal</a></li>
+                            <li><a href="#" class="colocarsub link rounded">Anuncie</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <hr>
+                <li class="mb-1">
+                    <button id="feedNoticias" onmouseover="corFeed()" onmouseout="corFeed2()"
+                        class="mudacor btn align-items-center rounded">
+                        <h5><img id="newsOrange" src="../imagens/newspaper-16.png" alt="Jornal laranja"><img
+                                style="display:none" id="newsWhite" src="../imagens/newspaper-16-white.png"
+                                alt="Jornal branco">
+                            <a class="link-feed" href="feed.html"><b>Feed de notícias</b></a>
+                        </h5>
+                    </button>
+
+                </li>
+                <li class="border-top my-3"></li>
+            </ul>
+        </div>
+        <main class="col-sm-12 col-md-9 col-lg-7" id="area-postagens">
+
+            <!--Início postagens -->
+            <div id="chama-form" style="display: block;">
+                <!--Início formulário de postagem -->
+                <button id="botaoformulario" onclick="mostraformulario()">Poste sobre seu pet...</button>
+                <!--exibe a div do formulário-->
+            </div>
+            <div id="form-postagem" style="display: none;">
+                <h2>Nova postagem:</h2>
+                <div>
+                    <input id="titulo" type="text" onfocus="this.value=''" required
+                        aria-label="Escrever título da postagem" />
+                    <span class="floating-label">&nbsp;Título da postagem &nbsp;</span>
+                </div>
+                <div>
+                    <input id="conteudo" type="text" onfocus="this.value=''" required
+                        aria-label="Escrever conteúdo da postagem" />
+                    <span class="floating-label">&nbsp;Conteúdo da postagem &nbsp;</span>
+                </div>
+                <div>
+                    <input id="imagem" type="text" onfocus="this.value=''" required
+                        aria-label="Colocar URL da imagem que deseja postar" />
+                    <!--posta o formulário-->
+                    <span class="floating-label">&nbsp;URL da imagem &nbsp;</span>
+                </div>
+                <button onclick="postar()">Postar</button>
+            </div>
+            <!--Final formulário de postagem -->
+
+            <div class="postagem">
+                <!--Abertura da postagem 1-->
+
+                <h2>Como deve ser o arranhador para o gato?</h2>
+                <span class="data-postagem">postado em 15 de abril de 2022</span>
+                <img width="620px" src="arranhador.png" alt="Gato afiando as unhas em um arranhador">
+                <div class="conteudo">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet massa mattis tellus
+                    egestas
+                    porta elementum mollis mi. Duis mattis at orci a sollicitudin. Nam consectetur massa in arcu
+                    ultricies pharetra. Nunc sed est orci. Suspendisse luctus vitae augue non viverra. Suspendisse
+                    sollicitudin molestie erat ut vulputate.
+                </div>
+                <p class="curtir"><a href="">Curtir</a> </p>
+            </div>
+            <!--final da postagem 1-->
+
+
+            <div class="postagem">
+                <!--Abertura da postagem 2-->
+                <h2>Título da postagem 2</h2>
+                <span class="data-postagem">postado em 10 de abril de 2022</span>
+                <img width="620px" src="">
+                <div class="conteudo">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet massa mattis tellus
+                    egestas
+                    porta elementum mollis mi. Duis mattis at orci a sollicitudin. Nam consectetur massa in arcu
+                    ultricies pharetra. Nunc sed est orci. Suspendisse luctus vitae augue non viverra. Suspendisse
+                    sollicitudin molestie erat ut vulputate.
+                </div>
+            </div>
+            <!--final da postagem 2-->
+        </main>
+        <aside style="display:none;" class="col-lg-2 container" id="subscription">
+            <img src="../imagens/Frame 1.png" class="img-fluid" alt="">
+        </aside>
+    </div>
+    <!--Final postagens -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script async src="https://srv2.weatherwidget.org/js/?id=ww_d44dd463517c8"></script>
+    <script src="feed.js"></script>
+
+
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            allowDropdown: true
+        });
+    </script>
+
+</body>
+
+</html>

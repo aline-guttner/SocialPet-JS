@@ -1,0 +1,296 @@
+:root{
+    --color: #f7b600;
+	--bkcolor: #e6e6e6;
+	--color2: white;
+    --color3: black;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+	flex-wrap: wrap;
+	
+}
+
+.iti__flag {background-image: url("path/to/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {background-image: url("path/to/flags@2x.png");}
+}
+
+@media (min-width: 576px) { 
+
+}
+
+@media (min-width: 768px) { 
+	.mysidebar{
+		display:block!important;
+		
+		
+	}
+
+	
+	#botaoMenu{
+		visibility: hidden;
+	}
+	body{
+		background-color: var(--bkcolor)!important;
+		
+	}
+	main{
+		
+		 margin-left: 25%!important;
+		 padding-left: 15px!important;
+		 padding-right: 15px!important;
+	}
+    #clima{
+        display:block!important;
+        margin-top: 70px;
+
+    }
+
+}
+
+@media (min-width: 992px) { 
+	#subscription{
+		display: block!important;
+	}
+}
+
+@media (max-width: 991px) and (min-width: 768px){
+a {
+	font-size: 15px!important;
+}
+
+}
+
+body{
+	background-color: var(--bkcolor) ;
+	color: var(--color)!important;
+	font-family: 'Quicksand', sans-serif!important;
+}
+.mynavbar{
+    background-color: var(--color);
+    display: flex;
+    flex-direction: row;
+    justify-content:  center;
+    position:fixed;
+    height: 60px;
+	width: 100%;
+	z-index: 1000;
+	
+}
+#botaoMenu{
+	border: none;
+	padding: none;
+	margin-bottom: 40px;
+}
+#menu{
+	position: absolute;
+	left: 3%;
+	padding: 2px;
+}
+.logo{
+    height: 50px;
+    width: 80px;
+    padding: 0;
+}
+
+.mysidebar{
+	
+    position: fixed;
+    height: 100%!important;
+    margin-top: 60px;
+	z-index: 1000;
+	
+	
+}
+
+h5{
+	margin-top: 0.5rem!important;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.mysidebar li{
+	margin-left: 15px;
+}
+
+.mudacor{
+	color: var(--color);
+	padding: 5px;
+	outline: none!important;
+}
+
+.mudacor:hover{
+	color: var(--color2);
+	background-color: var(--color)
+}
+
+.colocarsub{
+	color: var(--color);
+	padding: 5px;
+	font-size: large;
+	text-decoration: none;
+}
+
+.colocarsub:hover{
+	text-decoration: underline;
+	color: var(--color);
+}
+
+
+.button,
+.button:active, 
+ button:active,
+.button:focus, 
+ button:focus,
+.button:hover, 
+ button:hover{
+    border:none !important;
+    outline:none !important;
+}
+
+#pawOrange, #pawWhite, #userWhite, #userOrange{
+	margin-bottom: 3px;
+}
+
+.link-feed{
+    text-decoration: none;
+    color: var(--color);
+}
+
+.link-feed:hover{
+	color: var(--color2);
+}
+body {
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #e6e6e6;
+	text-overflow: clip;
+	
+	
+	
+}
+main{
+	margin-top: 70px!important;
+	
+	box-sizing: border-box;
+    
+}
+
+/** Formulário para nova postagem **/
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label {
+	top: -20px;
+	bottom: 10px;
+  	left: -50%;
+  	font-size: 11px;
+  	opacity: 1;
+  	color: var(--color3);
+  	height:10px;
+  	background-color: #ffffff;
+}
+.floating-label {
+	position: relative;
+	pointer-events: none;
+	left: -50%;
+	top: 2px;
+	transition: 0.2s ease all;
+    
+}
+#botaoformulario {
+width: 100%;	
+height: 3em;
+border: none;
+margin-bottom: 0;
+background-color: var(--color2);
+color: var(--color);
+font-weight: bolder;
+}
+#botaoformulario:hover {
+	background-color: var(--color) ;
+    color: var(--color2);
+}
+#form-postagem {
+	padding: 15px;
+	
+	background-color: white;
+}
+#form-postagem input {
+	font-size: 14px;
+	height: 35px;
+	margin-bottom: 10px;
+	width: 50%;
+	color: #A4A4A4;
+    border: solid 1px var(--color);
+}
+#form-postagem input:focus {
+	color: black;
+}
+#form-postagem h2 {
+	margin-bottom: 10px;
+}
+#form-postagem button {
+	width: 100px;
+	border-radius: 2px;
+    border: solid 1px var(--color);
+    color: var(--color);
+    background-color: var(--color2);
+
+}
+
+#form-postagem button:hover{
+    background-color: var(--color);
+    color: var(--color2);
+}
+
+/** Área de conteúdo principal **/
+
+
+#area-postagens {
+	
+
+	height: 100%;
+}
+.postagem {
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background: white;
+
+	
+}
+.postagem img  {
+	margin-top: 20px;
+	object-fit: contain;
+	max-width: 100%;
+}
+.conteudo {
+	margin-top: 10px;
+	margin: 0;
+	text-align: justify;
+	line-height: 1.5;
+}
+
+.curtir {
+	margin-top: 10px;
+	color: #f7b600;
+}
+
+.curtir a:link, a:visited, a:active {
+	text-decoration: underline;
+}
+
+.curtir a:hover {
+	text-decoration: none;
+	color:#f7b600;
+	border: 1px solid gray;
+}
+
+#subscription{
+	padding-top: 70px;
+	position: fixed;
+	right: 0.65%;
+}
