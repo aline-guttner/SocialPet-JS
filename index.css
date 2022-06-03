@@ -3,24 +3,52 @@
 	--color2: white;
 }
 
+*{
+    margin: none;
+    padding:none ;
+}
+
+@media (min-width: 768px) { 
+    body{
+        background-color: var(--color);
+    }
+
+    #login-form{
+        width: 300px!important;
+        height: auto!important;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color2); 
+        
+    }
+}
+
 body{
-    background-color: var(--color);
+    
     font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+    display: flex;
 }
 
 #login-form{
-    margin-left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--color2);    
+       
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
-    padding: 20px;
+    width: 100%;
+    position: absolute;
+   
 }
 
 #login-form img{
     margin-bottom: 30px;
+}
+
+#login-form label{
+    color: var(--color);
+    margin-bottom: 20px;
 }
 
 #login-form input{
@@ -32,6 +60,8 @@ body{
     margin-bottom: 30px;
 }
 
+
+
 #login-button{
     border: none;
     outline: none;
@@ -40,5 +70,37 @@ body{
     border-radius: 4px;
     font-size: large;
     padding: 10px 15px 10px 15px;
-    margin: none;
+    margin:30px;
 }
+
+#login-button:hover, #login-button:focus{
+    background-color: var(--color2);
+    color: var(--color)!important;
+    border: solid 1px var(--color);
+    cursor: pointer;
+}
+
+#login-form hr{
+    border-top: none;
+    border-bottom: solid 1px var(--color)!important;
+    width: 100%;
+}
+
+#label-inscricao{
+    font-size: small;
+}
+
+#inscricao{
+    border: none;
+    outline: none;
+    background-color: var(--color2);
+    color: #0362fc;
+    font-size: small;
+}
+
+
+#inscricao:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
