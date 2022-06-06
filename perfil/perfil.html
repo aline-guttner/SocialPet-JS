@@ -128,134 +128,149 @@
                 <div></div>
             </section>
             <section id="info">
-                <h5><b>Dados</b></h5>
-                <div id="info-usuario">
 
-                    <h6>User</h6>
-                    <div class="dado">
-                        <p>fulano.detal</p>
+                <form action="">
+                    <h5 id="dados" d><b>Dados</b></h5><button class="editar btn button"
+                        aria-label="Botão para liberar a edição das informações do usuário" type="button">Editar
+                    </button><button onclick="salvarUser()" id="salvandoUser" class="salvar btn button "
+                        type="button">Salvar</button>
+                    <div id="info-usuario">
 
-
-                    </div>
-                    <hr>
-                    <h6>Nome </h6>
-
-                    <div class="dado">
-                        <input class="botao-estilizado" id="novoNome" placeholder=" Fulano de tal" type="text"
-                            aria-label="Mudar nome do usuário">
-                        <button onclick="salvarNome()" id="salvandoNome" class="salvar btn button"
-                            type="submit">Salvar</button>
-                    </div>
-                    <hr>
-
-                    <h6>Celular</h6>
-                    <div class="dado telefone">
-                        <input type="tel" id="phone" aria-label="Salvar número de telefone">
-                        <button class="salvar btn button" type="submit">Salvar</button>
-                    </div>
+                        <h6>User</h6>
+                        <div class="dado">
+                            <p>fulano.detal</p>
 
 
-                    <hr>
-                    <h6>Data de nascimento</h6>
-                    <div class="dado">
-                        <input class="botao-estilizado" type="date" aria-label="Mudar data de nascimento">
-                        <button class="salvar btn button nascimento" type="submit">Salvar</button>
-                    </div>
-                    <hr>
+                        </div>
+                        <hr>
+                        <h6>Nome </h6>
 
-                </div>
-                <img id="seta-direita" onclick="abrirDados()" src="setaDireita.png"
-                    alt="Símbolo de seta laranja apontando para a direita">
-                <div id="info-animais" style="display: none;">
-                    <table id="tabela-animais">
-                        <thead>
-                            <tr>
-                                <td>Nome</td>
+                        <div class="dado">
+                            <input class="botao-estilizado readonlyUser" id="novoNome" placeholder=" Fulano de tal"
+                                type="text" aria-label="Mudar nome do usuário" readonly>
 
-                                <td>Tipo</td>
+                        </div>
+                        <hr>
 
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                        <h6>Celular</h6>
+                        <div class="dado telefone">
+                            <input type="tel" id="phone" class="botaoInfoUser readonlyUser"
+                                aria-label="Salvar número de telefone" readonly>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="umanimal">
-                                <td><input class="animal-mudar-nome botao-estilizado" type="text" placeholder="Bichano"
-                                        aria-label="Digitar nome do animal">
-                                </td>
+                        </div>
 
-                                <td>
-                                    <div class="form-group">
 
-                                        <select class="form-control" id="sel1">
-                                            <option>Gato</option>
-                                            <option>Cachorro</option>
-                                            <option>Pássaro</option>
-                                            <option>Cavalo</option>
-                                            <option>Outro</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
-                                <td><img class="maisinho" src="plus-16.png" alt="Símbolo de adição laranja"></td>
-                                <td></td>
+                        <hr>
+                        <h6>Data de nascimento</h6>
+                        <div class="dado">
+                            <input class="botao-estilizado readonlyUser" type="date"
+                                aria-label="Mudar data de nascimento" readonly>
 
-                            </tr>
-                            <tr class="umanimal">
-                                <td><input class="animal-mudar-nome botao-estilizado" type="text" placeholder="Gatildo"
-                                        aria-label="Digitar nome do animal"></td>
+                        </div>
 
-                                <td>
-                                    <div class="form-group">
+                        <hr>
+                </form>
+    </div>
+    <img id="seta-direita" onclick="abrirDados()" src="setaDireita.png"
+        alt="Símbolo de seta laranja apontando para a direita">
+    <div id="info-animais" style="display: none;">
+        <form action="">
+            <span>
+                <h5 id="pets" d><b>Pets</b></h5><button class="editarPet btn button"
+                    aria-label="Botão para liberar a edição das informações do usuário" type="button">Editar
+                </button><button onclick="salvarPets()" id="salvandoPets" class="salvarPet btn button "
+                    type="button">Salvar</button>
+            </span>
+            <table id="tabela-animais">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
 
-                                        <select class="form-control" id="sel1">
-                                            <option>Gato</option>
-                                            <option>Cachorro</option>
-                                            <option>Pássaro</option>
-                                            <option>Cavalo</option>
-                                            <option>Outro</option>
-                                        </select>
-                                    </div>
-                                </td>
+                        <td>Tipo</td>
 
-                                <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
-                                <td><img class="maisinho" src="plus-16.png" alt="Símbolo de adição laranja"></td>
-                                <td></td>
-                            </tr>
-                            <tr class="umanimal">
-                                <td><input class="animal-mudar-nome botao-estilizado" type="text" placeholder="Porcão"
-                                        aria-label="Digitar nome do animal"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-                                <td>
-                                    <div class="form-group">
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="umanimal">
+                        <td><input class="animalMudarNome botao-estilizado" type="text" placeholder="Bichano"
+                                aria-label="Digitar nome do animal">
+                        </td>
 
-                                        <select class="form-control" id="sel1">
-                                            <option>Gato</option>
-                                            <option>Cachorro</option>
-                                            <option>Pássaro</option>
-                                            <option>Cavalo</option>
-                                            <option>Outro</option>
-                                        </select>
-                                    </div>
-                                </td>
+                        <td>
+                            <div class="form-group">
 
-                                <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
-                                <td><img class="maisinho" src="plus-16.png" alt="Símbolo de adição laranja"></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
+                                <select class="form-control" id="sel1">
+                                    <option>Gato</option>
+                                    <option>Cachorro</option>
+                                    <option>Pássaro</option>
+                                    <option>Cavalo</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
+                        <td><img class="maisinho invisivel" src="plus-16.png" alt="Símbolo de adição laranja"></td>
+                        <td><img src="x-mark-16.png" class="xisinho" alt="Xis laranja"></td>
 
-                    </table>
-                    <img src="plus-16.png" id="mais" onclick="addPet()" alt="Símbolo de adição laranja">
-                </div>
-            </section>
+                    </tr>
+                    <tr class="umanimal">
+                        <td><input class="animalMudarNome botao-estilizado" type="text" placeholder="Gatildo"
+                                aria-label="Digitar nome do animal"></td>
 
-        </main>
-        <aside style="display:none;" class="col-lg-2 container" id="subscription">
-            <img src="../imagens/Frame 1.png" class="img-fluid" alt="">
-        </aside>
+                        <td>
+                            <div class="form-group">
+
+                                <select class="form-control" id="sel1">
+                                    <option>Gato</option>
+                                    <option>Cachorro</option>
+                                    <option>Pássaro</option>
+                                    <option>Cavalo</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                        </td>
+
+                        <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
+                        <td><img class="maisinho invisivel" src="plus-16.png" alt="Símbolo de adição laranja"></td>
+                        <td><img src="x-mark-16.png" class="xisinho" alt="Xis laranja"></td>
+                    </tr>
+                    <tr class="umanimal">
+                        <td><input class="animalMudarNome botao-estilizado" type="text" placeholder="Porcão"
+                                aria-label="Digitar nome do animal"></td>
+
+                        <td>
+                            <div class="form-group">
+
+                                <select class="form-control" id="sel1">
+                                    <option>Gato</option>
+                                    <option>Cachorro</option>
+                                    <option>Pássaro</option>
+                                    <option>Cavalo</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                        </td>
+
+                        <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
+                        <td><img class="maisinho invisivel" src="plus-16.png" alt="Símbolo de adição laranja"></td>
+                        <td><img src="x-mark-16.png" class="xisinho" alt="Xis laranja"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <img src="plus-16.png" id="mais" onclick="addPet()" alt="Símbolo de adição laranja">
+        </form>
+    </div>
+    </section>
+
+    </main>
+    <aside style="display:none;" class="col-lg-2 container" id="subscription">
+        <img src="../imagens/Frame 1.png" class="img-fluid" alt="">
+    </aside>
     </div>
 
     <!-- JavaScript Bundle with Popper -->

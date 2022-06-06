@@ -1,6 +1,7 @@
 :root{
     --color: #f7b600;;
 	--color2: white;
+    --EditAndLink: #0362fc;;
 }
 
 *{
@@ -94,7 +95,7 @@ body{
     border: none;
     outline: none;
     background-color: var(--color2);
-    color: #0362fc;
+    color:var(--EditAndLink);
     font-size: small;
 }
 

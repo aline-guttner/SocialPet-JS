@@ -72,7 +72,7 @@ function addPet() {
     nomeAnimal.setAttribute('type', 'text')
     nomeAnimal.setAttribute('placeholder', 'Nome do pet')
     nomeAnimal.setAttribute('aria-label', 'Digitar nome do animal')
-    nomeAnimal.classList.add('botao-estilizado', 'animal-mudar-nome')
+    nomeAnimal.classList.add('botao-estilizado', 'animalMudarNome')
 
     tdNome.appendChild(nomeAnimal)
 
@@ -103,60 +103,55 @@ function addPet() {
 
     tdSalvar.appendChild(salvar)
 
-    let maisinho = document.createElement('img')
-    maisinho.setAttribute('src', 'plus-16.png')
-    maisinho.setAttribute('alt', 'Símbolo de adição laranja')
-    maisinho.classList.add('maisinho')
+    let maisinhoImg = document.createElement('img')
+    maisinhoImg.setAttribute('src', 'plus-16.png')
+    maisinhoImg.setAttribute('alt', 'Símbolo de adição laranja')
+    maisinhoImg.classList.add('maisinho')
 
+    maisinhoImg.addEventListener('click', function (e) {
+        var el = $(this).index();
+        console.log(el)
+        let fotosNomesAnimais = document.getElementById('fotos-nomes-animais')
 
-    let classMaisinho = document.getElementsByClassName('maisinho')
-    for (i = 0; i < classMaisinho.length; i++) {
+        let novoanimal = document.createElement('div')
+        novoanimal.classList.add('foto-nome-animal')
 
-        classMaisinho[i].on('click', function (e) {
-            let fotosNomesAnimais = document.getElementById('fotos-nomes-animais')
+        let newid = Math.floor(Math.random() * 10000)
 
-            let novoanimal = document.createElement('div')
-            novoanimal.classList.add('foto-nome-animal')
+        let umanimal = document.getElementsByClassName('umanimal')
+        //resolver problema com índices (criar div só pra esse animal)
+        umanimal[el].setAttribute('id', newid)
 
-            let newid = Math.floor(Math.random() * 10000)
+        novoanimal.setAttribute('id', newid)
 
-            let umanimal = document.getElementsByClassName('umanimal')
-            //resolver problema com índices (criar div só pra esse animal)
-            umanimal[i].setAttribute('id', newid)
-
-            novoanimal.setAttribute('id', newid)
-
-            let novafoto = document.createElement('img')
-            novafoto.classList.add('foto-animal')
-            novafoto.setAttribute('src', 'cameraCinza.jpg')
-
-
-
-            let nomeani = document.createElement('p')
-            nomeani.classList.add('nome-animal')
-            let nomedoanimal = document.getElementsByClassName('animal-mudar-nome')
-            nomeani.innerText = nomedoanimal[i].value
-
-            let botaobicho = document.createElement('input')
-            botaobicho.classList.add('botaobicho')
-            botaobicho.setAttribute('type', 'file')
-            botaobicho.setAttribute('name', 'profile-photo')
-            botaobicho.setAttribute('placeholder', 'Photo')
-            botaobicho.setAttribute('required', '')
-            botaobicho.setAttribute('capture', '')
-            botaobicho.setAttribute('aria-label', 'Trocar foto do animal')
-
-            novoanimal.append(novafoto, nomeani, botaobicho)
-            fotosNomesAnimais.appendChild(novoanimal)
-            maisinho.remove()
-        })
-
-
-    }
+        let novafoto = document.createElement('img')
+        novafoto.classList.add('foto-animal')
+        novafoto.setAttribute('src', 'cameraCinza.jpg')
 
 
 
-    tdAdicionar.appendChild(maisinho)
+        let nomeani = document.createElement('p')
+        nomeani.classList.add('nome-animal')
+
+        let nomedoanimal = e.currentTarget.parentNode.parentNode.firstChild.firstChild
+        console.log(nomedoanimal)
+        nomeani.innerText = nomedoanimal.value
+
+        let botaobicho = document.createElement('input')
+        botaobicho.classList.add('botaobicho')
+        botaobicho.setAttribute('type', 'file')
+        botaobicho.setAttribute('name', 'profile-photo')
+        botaobicho.setAttribute('placeholder', 'Photo')
+        botaobicho.setAttribute('required', '')
+        botaobicho.setAttribute('capture', '')
+        botaobicho.setAttribute('aria-label', 'Trocar foto do animal')
+
+        novoanimal.append(novafoto, nomeani, botaobicho)
+        fotosNomesAnimais.appendChild(novoanimal)
+        maisinhoImg.remove()
+    })
+
+    tdAdicionar.appendChild(maisinhoImg)
 
     let xis = document.createElement('img')
     xis.setAttribute('src', 'x-mark-16.png')
@@ -176,6 +171,14 @@ function addPet() {
     let tbody = document.querySelector('tbody')
     tbody.appendChild(animal)
 }
+
+
+function salvarPet() {
+
+}
+
+
+
 
 
 
@@ -208,7 +211,7 @@ $('document').ready(function (e) {
 
 })
 
-function salvarNome() {
+function salvarUser() {
     let novoNome = document.getElementById('novoNome').value
     document.querySelector('.nome-usuario').innerHTML = novoNome
 }
@@ -282,3 +285,91 @@ function mostrarNavbar() {
     }
 
 }
+
+$('.editar').hover(hoverEditar, leaveEditar
+)
+
+
+function hoverEditar(e) {
+    let lapinho = document.getElementsByClassName('lapinho')
+    for (i = 0; i < lapinho.length; i++) {
+        lapinho[i].style.display = "inline"
+    }
+}
+
+function leaveEditar(e) {
+    let lapinho = document.getElementsByClassName('lapinho')
+    for (i = 0; i < lapinho.length; i++) {
+        lapinho[i].style.display = "none"
+    }
+}
+
+$('.editar').click(function () {
+    $('.readonlyUser').removeAttr('readonly')
+    let readonlyUser = document.querySelectorAll('.readonlyUser')
+    readonlyUser.forEach(btn => {
+        btn.classList.add('underline')
+    })
+    let salvar = document.querySelectorAll('.salvar')
+    salvar.forEach(btnSalvar => {
+        btnSalvar.style.display = 'inline'
+    })
+    let editar = document.querySelectorAll('.editar')
+    editar.forEach(btnEditar => {
+        btnEditar.style.display = 'none'
+    })
+
+})
+
+$('.salvar').click(function () {
+    $('.readonlyUser').prop('readonly', true)
+    let readonlyUser = document.querySelectorAll('.readonlyUser')
+
+    readonlyUser.forEach(btn => {
+        btn.classList.remove('underline')
+
+    })
+    let editar = document.querySelectorAll('.editar')
+    editar.forEach(btnEditar => {
+        btnEditar.style.display = 'inline'
+    })
+    let salvar = document.querySelectorAll('.salvar')
+    salvar.forEach(btnSalvar => {
+        btnSalvar.style.display = 'none'
+    })
+})
+
+$('.editarPet').click(function () {
+    $('.readonly').removeAttr('readonly')
+    let readonly = document.querySelectorAll('.readonly')
+    readonly.forEach(btn => {
+        btn.classList.add('underline')
+    })
+    let salvarPet = document.querySelectorAll('.salvarPet')
+    salvarPet.forEach(btnSalvar => {
+        btnSalvar.style.display = 'inline'
+    })
+    let editarPet = document.querySelectorAll('.editarPet')
+    editarPet.forEach(btnEditar => {
+        btnEditar.style.display = 'none'
+    })
+
+})
+
+$('.salvarPet').click(function () {
+    $('.readonly').prop('readonly', true)
+    let readonly = document.querySelectorAll('.readonly')
+
+    readonly.forEach(btn => {
+        btn.classList.remove('underline')
+
+    })
+    let editarPet = document.querySelectorAll('.editarPet')
+    editarPet.forEach(btnEditar => {
+        btnEditar.style.display = 'inline'
+    })
+    let salvarPet = document.querySelectorAll('.salvarPet')
+    salvarPet.forEach(btnSalvar => {
+        btnSalvar.style.display = 'none'
+    })
+})
