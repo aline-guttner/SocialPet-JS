@@ -12,6 +12,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="intl-tel-input-17.0.0/build/css/intlTelInput.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
     </style>
@@ -104,19 +105,19 @@
                         <p class="nome-usuario">Fulano de Tal</p>
                     </div>
                     <div id="fotos-nomes-animais">
-                        <div class="foto-nome-animal"><img class="img-fluid foto-animal" src="catcouch.jpg"
-                                alt="Gato preto e branco em cima do encosto do sofá"><input
+                        <div class="foto-nome-animal" id="cadastro1"><img class="img-fluid foto-animal"
+                                src="catcouch.jpg" alt="Gato preto e branco em cima do encosto do sofá"><input
                                 class="botaobicho botao-estilizado" type="file" name="profile_photo" placeholder="Photo"
                                 required="" capture aria-label="Trocar foto do animal">
-                            <p class="nome-animal">Bichano</p>
+                            <p class="nome-animal">Gatildo</p>
                         </div>
-                        <div class="foto-nome-animal"><img class="img-fluid foto-animal" src="cat3.jpeg"
+                        <div class="foto-nome-animal" id="cadastro2"><img class="img-fluid foto-animal" src="cat3.jpeg"
                                 alt="Gato malhado de frente para a câmera"><input class="botaobicho botao-estilizado"
                                 type="file" name="profile_photo" placeholder="Photo" required="" capture
                                 aria-label="Trocar foto do animal">
                             <p class="nome-animal">Bichano</p>
                         </div>
-                        <div class="foto-nome-animal"><img class="img-fluid foto-animal" src="cat2.jpeg"
+                        <div class="foto-nome-animal" id="cadastro3"><img class="img-fluid foto-animal" src="cat2.jpeg"
                                 alt="Filhote de gato branco dormindo de barriga pra cima com as patinhas dianteiras unidas"><input
                                 class="botao-estilizado botaobicho" type="file" name="profile_photo" placeholder="Photo"
                                 required="" capture aria-label="Trocar foto do animal">
@@ -195,8 +196,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="umanimal">
-                        <td><input class="animalMudarNome botao-estilizado" type="text" placeholder="Bichano"
+                    <tr id="cadastro1" class="umanimal">
+                        <td><input required class="animalMudarNome botao-estilizado" type="text" placeholder="Bichano"
                                 aria-label="Digitar nome do animal">
                         </td>
 
@@ -214,10 +215,10 @@
                         </td>
                         <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
                         <td><img class="maisinho invisivel" src="plus-16.png" alt="Símbolo de adição laranja"></td>
-                        <td><img src="x-mark-16.png" class="xisinho" alt="Xis laranja"></td>
+                        <td><img src="x-mark-16.png" class="xis" alt="Xis laranja"></td>
 
                     </tr>
-                    <tr class="umanimal">
+                    <tr id="cadastro2" class="umanimal">
                         <td><input class="animalMudarNome botao-estilizado" type="text" placeholder="Gatildo"
                                 aria-label="Digitar nome do animal"></td>
 
@@ -236,9 +237,9 @@
 
                         <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
                         <td><img class="maisinho invisivel" src="plus-16.png" alt="Símbolo de adição laranja"></td>
-                        <td><img src="x-mark-16.png" class="xisinho" alt="Xis laranja"></td>
+                        <td><img src="x-mark-16.png" class="xis" alt="Xis laranja"></td>
                     </tr>
-                    <tr class="umanimal">
+                    <tr id="cadastro3" class="umanimal">
                         <td><input class="animalMudarNome botao-estilizado" type="text" placeholder="Porcão"
                                 aria-label="Digitar nome do animal"></td>
 
@@ -257,7 +258,7 @@
 
                         <td><button class="salvar salvar-animal btn button" type="submit">Salvar</button></td>
                         <td><img class="maisinho invisivel" src="plus-16.png" alt="Símbolo de adição laranja"></td>
-                        <td><img src="x-mark-16.png" class="xisinho" alt="Xis laranja"></td>
+                        <td><img src="x-mark-16.png" class="xis" alt="Xis laranja"></td>
                     </tr>
                 </tbody>
 
@@ -282,6 +283,7 @@
     <script src="intl-tel-input-17.0.0/build/js/intlTelInput.js"></script>
     <script src="utils.js"></script>
     <script src="intl-tel-input-17.0.0/build/js/intlTelInput.js"></script>
+
     <script>
         var input = document.querySelector("#phone");
         window.intlTelInput(input, {

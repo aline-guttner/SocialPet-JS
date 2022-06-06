@@ -74,6 +74,7 @@ function addPet() {
     nomeAnimal.setAttribute('aria-label', 'Digitar nome do animal')
     nomeAnimal.classList.add('botao-estilizado', 'animalMudarNome')
 
+
     tdNome.appendChild(nomeAnimal)
 
     let divTipoAnimal = document.createElement('div')
@@ -110,45 +111,77 @@ function addPet() {
 
     maisinhoImg.addEventListener('click', function (e) {
         var el = $(this).index();
-        console.log(el)
-        let fotosNomesAnimais = document.getElementById('fotos-nomes-animais')
+        function isEmpty(str) {
+            return !str.trim().length;
+        }
+        if (isEmpty(e.currentTarget.parentNode.parentNode.firstChild.firstChild.value)) {
+            return;
+        } else {
 
-        let novoanimal = document.createElement('div')
-        novoanimal.classList.add('foto-nome-animal')
+            console.log(el)
+            let fotosNomesAnimais = document.getElementById('fotos-nomes-animais')
 
-        let newid = Math.floor(Math.random() * 10000)
+            let novoanimal = document.createElement('div')
+            novoanimal.classList.add('foto-nome-animal')
 
-        let umanimal = document.getElementsByClassName('umanimal')
-        //resolver problema com índices (criar div só pra esse animal)
-        umanimal[el].setAttribute('id', newid)
+            let newid = Math.floor(Math.random() * 10000)
 
-        novoanimal.setAttribute('id', newid)
+            let umanimal = document.getElementsByClassName('umanimal')
+            //resolver problema com índices (criar div só pra esse animal)
+            umanimal[el].setAttribute('id', newid)
 
-        let novafoto = document.createElement('img')
-        novafoto.classList.add('foto-animal')
-        novafoto.setAttribute('src', 'cameraCinza.jpg')
+            novoanimal.setAttribute('id', newid)
+
+            let botaobicho = document.createElement('input')
+            botaobicho.classList.add('botaobicho')
+            botaobicho.setAttribute('type', 'file')
+            botaobicho.setAttribute('name', 'profile-photo')
+            botaobicho.setAttribute('placeholder', 'Photo')
+            botaobicho.setAttribute('required', '')
+            botaobicho.setAttribute('capture', '')
+            botaobicho.setAttribute('aria-label', 'Trocar foto do animal')
+
+            let novafoto = document.createElement('img')
+            novafoto.classList.add('foto-animal')
+
+            novafoto.setAttribute('src', 'cameraCinza.jpg')
+
+            novafoto.addEventListener('click', function (e) {
+
+                botaobicho.click()
+                botaobicho.addEventListener('change', function () {
+                    const chosenPic = this.files[0]
+                    const reader2 = new FileReader()
+                    reader2.readAsDataURL(chosenPic)
+                    if (chosenPic) {
+                        reader2.addEventListener('load', function () {
+                            novafoto.setAttribute('src', reader2.result)
+                            novafoto.style.height = "60px";
+                            novafoto.style.width = "60px";
+                        })
+
+                        Event.stopPropagation();
+                    }
+
+                })
+            })
 
 
 
-        let nomeani = document.createElement('p')
-        nomeani.classList.add('nome-animal')
+            let nomeani = document.createElement('p')
+            nomeani.classList.add('nome-animal')
 
-        let nomedoanimal = e.currentTarget.parentNode.parentNode.firstChild.firstChild
-        console.log(nomedoanimal)
-        nomeani.innerText = nomedoanimal.value
+            let nomedoanimal = e.currentTarget.parentNode.parentNode.firstChild.firstChild
+            console.log(nomedoanimal)
+            nomeani.innerText = nomedoanimal.value
 
-        let botaobicho = document.createElement('input')
-        botaobicho.classList.add('botaobicho')
-        botaobicho.setAttribute('type', 'file')
-        botaobicho.setAttribute('name', 'profile-photo')
-        botaobicho.setAttribute('placeholder', 'Photo')
-        botaobicho.setAttribute('required', '')
-        botaobicho.setAttribute('capture', '')
-        botaobicho.setAttribute('aria-label', 'Trocar foto do animal')
 
-        novoanimal.append(novafoto, nomeani, botaobicho)
-        fotosNomesAnimais.appendChild(novoanimal)
-        maisinhoImg.remove()
+
+            novoanimal.append(novafoto, nomeani, botaobicho)
+            fotosNomesAnimais.appendChild(novoanimal)
+            maisinhoImg.remove()
+        }
+
     })
 
     tdAdicionar.appendChild(maisinhoImg)
@@ -173,36 +206,23 @@ function addPet() {
 }
 
 
-function salvarPet() {
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $('.xis').click(function (e) {
+
+
     const cadastroId = e.currentTarget.parentNode.parentNode.id;
     const trToBeRemoved = e.currentTarget.parentNode.parentNode;
     trToBeRemoved.remove()
     const tagToBeRemoved = document.getElementById(cadastroId)
     tagToBeRemoved.remove()
+    if ($('tbody').children().length == 0) {
+        $("thead").hide();
+    } else {
+        $("thead").show();
+    }
+
 })
+
 
 
 $('document').ready(function (e) {
@@ -373,3 +393,6 @@ $('.salvarPet').click(function () {
         btnSalvar.style.display = 'none'
     })
 })
+
+
+
