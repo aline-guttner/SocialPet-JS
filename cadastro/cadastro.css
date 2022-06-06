@@ -14,8 +14,8 @@
         background-color: var(--color);
     }
 
-    #login-form{
-        width: 300px!important;
+    #cadastro-form{
+        width: 700px!important;
         height: auto!important;
         padding: 20px;
         top: 50%;
@@ -33,37 +33,61 @@ body{
     display: flex;
 }
 
-#login-form{
-       
+#cadastro-form{
+    padding: 50px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     position: absolute;
-   
+    box-sizing: border-box;
 }
 
-#login-form img{
+#cadastro-form img{
     margin-bottom: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
-#login-form label{
+#cadastro-form label{
     color: var(--color);
     margin-bottom: 20px;
 }
 
-#login-form input{
+#cadastro-form input{
     outline: none;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: #f7b600 1px solid;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 
+#senhas{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
 
-#login-button{
+#senhas div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#senhas input{
+    width: 100%;
+}
+
+#divPassword2{
+    padding-left: 60px;
+}
+
+#criarConta{
     border: none;
     outline: none;
     background-color: var(--color);
@@ -72,6 +96,8 @@ body{
     font-size: large;
     padding: 10px 15px 10px 15px;
     margin:30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 #login-button:hover, #login-button:focus{
@@ -81,29 +107,8 @@ body{
     cursor: pointer;
 }
 
-#login-form hr{
+#cadastro-form hr{
     border-top: none;
     border-bottom: solid 1px var(--color)!important;
     width: 100%;
 }
-
-#pinscricao{
-    font-size: medium;
-    color: var(--color);
-}
-
-#inscricao{
-    border: none;
-    outline: none;
-    background-color: var(--color2);
-    color:var(--EditAndLink);
-    font-size: medium;
-    text-decoration: none;
-}
-
-
-#inscricao:hover{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
