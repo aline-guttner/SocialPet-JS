@@ -210,6 +210,7 @@ main{
 	display: flex;
 	flex-direction: column;
 	align-items: center!important;
+	position: absolute;
 	
 }
 #fotoUsuario{
@@ -217,7 +218,7 @@ main{
 	height: 100px;
 	width: 100px;
 	object-fit: cover;
-	border: solid white 3px;
+	border: solid var(--color) 3px;
 }
 
 
@@ -238,10 +239,11 @@ main{
 
 .foto-animal{
 	border-radius: 50%;
-	height: 60px;
+	
 	width: 60px;
+	height: 60px;
 	object-fit: cover;
-	border: solid white 3px;
+	border: solid var(--color) 3px;
 }
 
 .nome-animal, .nome-usuario{
