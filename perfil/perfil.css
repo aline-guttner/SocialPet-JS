@@ -492,8 +492,8 @@ thead td{
 	flex-wrap: nowrap;
 }
 
-.carousel-control-prev,.carousel-control-next {
-	width: auto!important;
+.carousel-control-prev,.carousel-control-next{
+	width: 1.5rem;
 
 }
 
@@ -502,6 +502,8 @@ thead td{
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 0 30px 0 30px;
+	margin: 1px;
+	
 }
 .amigo{
 	background-color: var(--color2);
