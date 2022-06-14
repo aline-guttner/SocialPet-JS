@@ -104,29 +104,50 @@
                             alt="Homem de cabelo castanho com gato malhado no ombro à direita ">
                         <p class="nome-usuario">Fulano de Tal</p>
                     </div>
-                    <div id="fotos-nomes-animais">
-                        <div class="foto-nome-animal" id="cadastro1"><img class="img-fluid foto-animal"
-                                src="catcouch.jpg" alt="Gato preto e branco em cima do encosto do sofá"><input
-                                class="botaobicho botao-estilizado" type="file" name="profile_photo" placeholder="Photo"
-                                required="" capture aria-label="Trocar foto do animal">
-                            <p class="nome-animal">Gatildo</p>
-                        </div>
-                        <div class="foto-nome-animal" id="cadastro2"><img class="img-fluid foto-animal" src="cat3.jpeg"
-                                alt="Gato malhado de frente para a câmera"><input class="botaobicho botao-estilizado"
-                                type="file" name="profile_photo" placeholder="Photo" required="" capture
-                                aria-label="Trocar foto do animal">
-                            <p class="nome-animal">Bichano</p>
-                        </div>
-                        <div class="foto-nome-animal" id="cadastro3"><img class="img-fluid foto-animal" src="cat2.jpeg"
-                                alt="Filhote de gato branco dormindo de barriga pra cima com as patinhas dianteiras unidas"><input
-                                class="botao-estilizado botaobicho" type="file" name="profile_photo" placeholder="Photo"
-                                required="" capture aria-label="Trocar foto do animal">
-                            <p class="nome-animal">Porcão</p>
-                        </div>
-                    </div>
+                    <div id="carouselExampleDark2" class="carousel carousel-dark slide carousel-pets"
+                        data-bs-ride="carousel" data-bs-interval="99999999999999">
 
+                        <div class="carousel-inner" id="carouselInnerPet">
+                            <div class="carousel-item active">
+                                <div class="row rowPets fotos-nomes-animais">
+                                    <div class="col pet container foto-nome-animal" id="cadastro1">
+                                        <img class="img-fluid foto-animal" src="catcouch.jpg"
+                                            alt="Gato preto e branco em cima do encosto do sofá"><input
+                                            class="botaobicho botao-estilizado" type="file" name="profile_photo"
+                                            placeholder="Photo" required="" capture aria-label="Trocar foto do animal">
+                                        <p class="nome-animal">Bichano</p>
+                                    </div>
+                                    <div class="col pet container foto-nome-animal" id="cadastro2">
+                                        <img class="img-fluid foto-animal" src="cat3.jpeg"
+                                            alt="Gato malhado de frente para a câmera"><input
+                                            class="botaobicho botao-estilizado" type="file" name="profile_photo"
+                                            placeholder="Photo" required="" capture aria-label="Trocar foto do animal">
+                                        <p class="nome-animal">Gatildo</p>
+                                    </div>
+                                    <div class="col pet container foto-nome-animal" id="cadastro3">
+                                        <img class="img-fluid foto-animal" src="cat2.jpeg"
+                                            alt="Filhote de gato branco dormindo de barriga pra cima com as patinhas dianteiras unidas"><input
+                                            class="botao-estilizado botaobicho" type="file" name="profile_photo"
+                                            placeholder="Photo" required="" capture aria-label="Trocar foto do animal">
+                                        <p class="nome-animal">Porcão</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev carousel-pet-prev" type="button"
+                                data-bs-target="#carouselExampleDark2" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next carousel-pet-next" type="button"
+                                data-bs-target="#carouselExampleDark2" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span></button>
+                        </div>
+
+                    </div>
                 </div>
-                <div></div>
             </section>
             <section id="info">
 
@@ -325,18 +346,19 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                <button class=" carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                <button class=" carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span></button>
             </div>
             <button class="btn button" type="button" id="verTudo">Ver tudo >></button>
     </section>
+
     </main>
     <aside style="display:none;" class="col-lg-2 container" id="subscription">
         <img src="../imagens/Frame 1.png" class="img-fluid" alt="">
@@ -347,11 +369,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-    <script async src="https://srv2.weatherwidget.org/js/?id=ww_d44dd463517c8"></script>
     <script src="perfil.js"></script>
     <script src="intl-tel-input-17.0.0/build/js/intlTelInput.js"></script>
     <script src="utils.js"></script>
     <script src="intl-tel-input-17.0.0/build/js/intlTelInput.js"></script>
+    <script src="petCarousel.js"></script>
 
     <script>
         var input = document.querySelector("#phone");

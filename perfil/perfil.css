@@ -9,7 +9,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	flex-wrap: wrap;
+	
 	
 }
 
@@ -45,9 +45,13 @@
 		 padding-right: 15px!important;
 	}
 
+	#fotos-nomes{
+		height: 200px!important;
+	}
+
 	#fotoUsuario{
-		height: 120px!important;
-		width: 120px!important;
+		height: 100px!important;
+		width: 100px!important;
 	}
 
 	.foto-animal{
@@ -174,15 +178,18 @@ h5{
 	color: var(--color2);
 }
 main{
-	margin-top: 60px;
+	margin-top: 60px!important;
 	margin-left: 0px;
 	box-sizing: border-box;
+	
 }
 
 #fotos-nomes{
-	height:45vh;
+	height:180px;
 	background-color: var(--color2);
 	width: 100%;
+	
+	
 }
 	
 #backpic{
@@ -193,7 +200,7 @@ main{
 }
 
 #fotos-nomes-todos{
-	top: 6%;
+	margin-top: 20px;
 	transform: translateY(-50%);
 	margin-left: 5%;
 	margin-right: 5%;
@@ -202,34 +209,67 @@ main{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	align-items: center;
 	
 	
 }
+
 
 .foto-nome-usuario{
 	display: flex;
 	flex-direction: column;
 	align-items: center!important;
 	position: absolute;
+	bottom: 50%;
+	transform: translateY(-50%);
 	
 }
 #fotoUsuario{
 	border-radius: 50%;
-	height: 100px;
-	width: 100px;
+	height: 90px;
+	width: 90px;
 	object-fit: cover;
 	border: solid var(--color) 3px;
 }
 
+.carousel-pets{
+	margin-left: 20px;
+	width: 70%;
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+	height: 100%;
+	min-height: 200px;
+	
+}
 
-#fotos-nomes-animais{
-	width: 50%;
+
+.fotos-nomes-animais{
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: nowrap;
+	margin-left: 50%;
+    transform: translateX(-50%);
+	height: 100%;
 }
 
+
+
+.carousel-control-prev span{
+	width: 1.5rem;
+}
+
+
+
+
+
+.carousel-control-next span{
+	width: 1.5rem;
+}
 .foto-nome-animal{
 	display: flex;
 	flex-direction: column;
@@ -448,6 +488,10 @@ thead td{
 	
 }
 
+#carouselExampleDark{
+	flex-wrap: nowrap;
+}
+
 .carousel-control-prev,.carousel-control-next {
 	width: auto!important;
 
@@ -478,7 +522,7 @@ thead td{
 	border: solid 3px var(--color);
 }
 
-.rowAmigos p{
+.rowAmigos p, .rowPets p{
 	font-weight: bold;
 	margin-top: 10px;
 	text-align: center;
@@ -505,3 +549,8 @@ thead td{
 #verTudo:hover{
 	text-decoration: underline;
 }
+
+.carousel-inner{
+	padding-right: 0%;
+}
+

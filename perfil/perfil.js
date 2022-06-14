@@ -206,15 +206,253 @@ function addPet() {
 }
 
 
+let carouselInner = document.getElementById('carouselInnerPet')
+
+
+
+
+
+function addPet() {
+
+    $('#mais').css('visibility', "hidden")
+
+    let animais = document.getElementById('tabela-animais')
+    let animal = document.createElement('tr')
+    animal.classList.add('umanimal', 'animalAdicionado')
+    let newid = Math.floor(Math.random() * 10000000)
+    animal.setAttribute('id', newid)
+
+    let tdNome = document.createElement('td')
+    let tdTipo = document.createElement('td')
+    let tdSalvar = document.createElement('td')
+    let tdAdicionar = document.createElement('td')
+    let tdExcluir = document.createElement('td')
+
+    let nomeAnimal = document.createElement('input')
+    nomeAnimal.setAttribute('type', 'text')
+    nomeAnimal.setAttribute('placeholder', 'Nome do pet')
+    nomeAnimal.setAttribute('aria-label', 'Digitar nome do animal')
+    nomeAnimal.classList.add('botao-estilizado', 'animalMudarNome')
+
+
+    tdNome.appendChild(nomeAnimal)
+
+    let divTipoAnimal = document.createElement('div')
+    let tipoAnimal = document.createElement('select')
+    divTipoAnimal.classList.add('form-group')
+    tipoAnimal.classList.add('form-control')
+    tipoAnimal.setAttribute('name', 'tipos')
+
+    let option1 = document.createElement('option')
+    option1.innerText = 'Gato'
+    let option2 = document.createElement('option')
+    option2.innerText = 'Cachorro'
+    let option3 = document.createElement('option')
+    option3.innerText = 'Pássaro'
+    let option4 = document.createElement('option')
+    option4.innerText = 'Cavalo'
+    let option5 = document.createElement('option')
+    option5.innerText = 'Outro'
+
+    tipoAnimal.append(option1, option2, option3, option4, option5)
+    divTipoAnimal.appendChild(tipoAnimal)
+
+    tdTipo.appendChild(divTipoAnimal)
+
+    let salvar = document.createElement('button')
+    salvar.classList.add('salvar', 'salvar-animal', 'btn', 'button')
+
+    tdSalvar.appendChild(salvar)
+
+    let maisinhoImg = document.createElement('img')
+    maisinhoImg.setAttribute('src', 'plus-16.png')
+    maisinhoImg.setAttribute('alt', 'Símbolo de adição laranja')
+    maisinhoImg.classList.add('maisinho')
+
+    maisinhoImg.addEventListener('click', function (e) {
+
+        $('#mais').css('visibility', "visible")
+
+
+        function isEmpty(str) {
+            return !str.trim().length;
+        }
+        if (isEmpty(e.currentTarget.parentNode.parentNode.firstChild.firstChild.value)) {
+            return;
+        } else {
+            var el = $(this).index();
+
+            let carouselInner = document.getElementById('carouselInnerPet')
+
+            let novoanimal = document.createElement('div')
+            novoanimal.classList.add('col', 'pet', 'container', 'foto-nome-animal')
+
+            novoanimal.setAttribute('id', newid)
+
+            let botaobicho = document.createElement('input')
+            botaobicho.classList.add('botaobicho')
+            botaobicho.setAttribute('type', 'file')
+            botaobicho.setAttribute('name', 'profile-photo')
+            botaobicho.setAttribute('placeholder', 'Photo')
+            botaobicho.setAttribute('required', '')
+            botaobicho.setAttribute('capture', '')
+            botaobicho.setAttribute('aria-label', 'Trocar foto do animal')
+
+            let novafoto = document.createElement('img')
+            novafoto.classList.add('foto-animal')
+
+            novafoto.setAttribute('src', 'cameraCinza.jpg')
+
+            novafoto.addEventListener('click', function (e) {
+
+                botaobicho.click()
+                botaobicho.addEventListener('change', function () {
+                    const chosenPic = this.files[0]
+                    const reader2 = new FileReader()
+                    reader2.readAsDataURL(chosenPic)
+                    if (chosenPic) {
+                        reader2.addEventListener('load', function () {
+                            novafoto.setAttribute('src', reader2.result)
+                            novafoto.style.height = "60px";
+                            novafoto.style.width = "60px";
+                        })
+
+                        Event.stopPropagation();
+                    }
+
+                })
+            })
+
+
+
+            let nomeani = document.createElement('p')
+            nomeani.classList.add('nome-animal')
+
+            let nomedoanimal = e.currentTarget.parentNode.parentNode.firstChild.firstChild
+
+            nomeani.innerText = nomedoanimal.value
+
+            //let fotosNomesAnimais = carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild
+
+            novoanimal.append(novafoto, nomeani, botaobicho)
+
+            let lastAnimal = carouselInner.lastElementChild.lastElementChild
+
+
+
+
+            console.log($('#carouselInnerPet').find('div.row').length)
+
+            if ($('#carouselInnerPet').find('div.row').length == 0) {
+                let carouselItem = document.createElement('div')
+                carouselItem.classList.add('carousel-item', 'active')
+
+                row = document.createElement('div')
+                row.classList.add('row', 'rowPets', 'fotos-nomes-animais', 'bla')
+
+                row.appendChild(novoanimal)
+                carouselItem.appendChild(row)
+
+                let lastButton = carouselInner.lastElementChild.previousElementSibling
+
+                carouselInner.insertBefore(carouselItem, lastButton)
+                let childrenLenght = carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild.childNodes.length
+
+            } else if (carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild.childNodes.length >= 3) {
+                let carouselItem = document.createElement('div')
+                carouselItem.classList.add('carousel-item')
+
+                row = document.createElement('div')
+                row.classList.add('row', 'rowPets', 'fotos-nomes-animais', 'bla')
+
+                row.appendChild(novoanimal)
+                carouselItem.appendChild(row)
+
+                let lastButton = carouselInner.lastElementChild.previousElementSibling
+
+                carouselInner.insertBefore(carouselItem, lastButton)
+                let childrenLenght = carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild.childNodes.length
+
+
+
+            } else {
+                let row = carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild
+
+
+                row.appendChild(novoanimal)
+            }
+
+            maisinhoImg.remove()
+        }
+
+    })
+
+    tdAdicionar.appendChild(maisinhoImg)
+
+    let xis = document.createElement('img')
+    xis.setAttribute('src', 'x-mark-16.png')
+    xis.classList.add('xis')
+    xis.addEventListener('click', function (e) {
+        const cadastroId = e.currentTarget.parentNode.parentNode.id;
+
+        const trToBeRemoved = e.currentTarget.parentNode.parentNode;
+
+        trToBeRemoved.remove()
+
+        const tagToBeRemoved = document.getElementById(cadastroId)
+        console.log(tagToBeRemoved.parentNode.querySelectorAll('.foto-nome-animal').length)
+
+        if (tagToBeRemoved.parentNode.querySelectorAll('.foto-nome-animal').length > 1) {
+            tagToBeRemoved.remove()
+
+        } else {
+            let carouselItem = tagToBeRemoved.parentNode.parentNode
+            carouselItem.classList.remove('active')
+            if (carouselItem.previousElementSibling) {
+                carouselItem.previousElementSibling.classList.add('active')
+                carouselItem.remove()
+            } else {
+                carouselItem.remove()
+            }
+
+        }
+
+    })
+
+    tdExcluir.appendChild(xis)
+
+    animal.append(tdNome, tdTipo, tdSalvar, tdAdicionar, tdExcluir)
+
+    let tbody = document.querySelector('tbody')
+    tbody.appendChild(animal)
+}
 
 $('.xis').click(function (e) {
+    const cadastroId2 = e.currentTarget.parentNode.parentNode.id;
 
 
-    const cadastroId = e.currentTarget.parentNode.parentNode.id;
-    const trToBeRemoved = e.currentTarget.parentNode.parentNode;
-    trToBeRemoved.remove()
-    const tagToBeRemoved = document.getElementById(cadastroId)
-    tagToBeRemoved.remove()
+
+    const trToBeRemoved2 = e.currentTarget.parentNode.parentNode;
+
+    trToBeRemoved2.remove()
+
+    const tagToBeRemoved2 = document.getElementById(cadastroId2)
+
+
+
+    if (tagToBeRemoved2.parentNode.children.length > 1) {
+        tagToBeRemoved2.remove()
+    } else {
+        let carouselItem = tagToBeRemoved2.parentNode.parentNode
+        carouselItem.classList.remove('active')
+        if (carouselItem.previousElementSibling) {
+            carouselItem.previousElementSibling.classList.add('active')
+            carouselItem.remove()
+        } else {
+            carouselItem.remove()
+        }
+
+    }
     if ($('tbody').children().length == 0) {
         $("thead").hide();
     } else {
@@ -222,6 +460,8 @@ $('.xis').click(function (e) {
     }
 
 })
+
+
 
 
 
@@ -393,5 +633,3 @@ $('.salvarPet').click(function () {
         btnSalvar.style.display = 'none'
     })
 })
-
-
