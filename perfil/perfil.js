@@ -383,6 +383,14 @@ function addPet() {
             }
 
             maisinhoImg.remove()
+
+            if ($('#carouselInnerPet').find('div.row').length <= 1) {
+
+                $('.carousel-pet-next').css('visibility', 'hidden')
+            } else {
+
+                $('.carousel-pet-next').css('visibility', 'visible')
+            }
         }
 
     })
@@ -416,6 +424,13 @@ function addPet() {
             }
 
         }
+        if ($('#carouselInnerPet').find('div.row').length <= 1) {
+
+            $('.carousel-pet-next').css('visibility', 'hidden')
+        } else {
+
+            $('.carousel-pet-next').css('visibility', 'visible')
+        }
 
     })
 
@@ -425,6 +440,8 @@ function addPet() {
 
     let tbody = document.querySelector('tbody')
     tbody.appendChild(animal)
+
+
 }
 
 $('.xis').click(function (e) {
@@ -633,3 +650,11 @@ $('.salvarPet').click(function () {
         btnSalvar.style.display = 'none'
     })
 })
+
+if ($('#carouselInnerPet').find('div.row').length <= 1) {
+
+    $('.carousel-pet-next').css('visibility', 'hidden')
+} else {
+
+    $('.carousel-pet-next').css('visibility', 'visible')
+}
