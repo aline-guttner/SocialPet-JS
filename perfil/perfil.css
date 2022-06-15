@@ -234,7 +234,7 @@ main{
 
 .carousel-pets{
 	margin-left: 20px;
-	width: 80%;
+	width: 90%;
 	display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -255,6 +255,7 @@ main{
 	    margin-left: 50%;
     transform: translateX(-50%);
 	height: 100%;
+	padding-right: 15px;
 }
 
 .carousel-control-prev span{
@@ -276,8 +277,8 @@ main{
 .foto-animal{
 	border-radius: 50%;
 	
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	object-fit: cover;
 	border: solid var(--color) 3px;
 }
