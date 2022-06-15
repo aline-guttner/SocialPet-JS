@@ -19,6 +19,28 @@ file.addEventListener('change', function () {
     }
 })
 
+$("#backpic").click(function (e) {
+    $("#backUpload").click();
+});
+
+let file2 = document.getElementById("backUpload")
+let img2 = document.getElementById("backpic")
+
+file2.addEventListener('change', function () {
+    const choosenFile = this.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(choosenFile);
+    if (choosenFile) {
+        reader.addEventListener('load', function () {
+            img2.setAttribute('src', reader.result);
+            img2.style.height = "50%";
+            img2.style.width = "100%";
+            img2.style.objectFit = "cover";
+        });
+
+    }
+})
+
 $('.foto-animal').click(function (e) {
     let fotobicho = document.getElementsByClassName('foto-animal')
     let botaobicho = document.getElementsByClassName('botaobicho')

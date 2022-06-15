@@ -203,6 +203,10 @@ main{
 	
 }
 
+#backUpload{
+	display: none;
+}
+
 #fotos-nomes-todos{
 	margin-top: 20px;
 	transform: translateY(-50%);
