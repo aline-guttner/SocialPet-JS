@@ -236,7 +236,10 @@ main{
 #foto-nome-usuario{
 	
 	margin-left: 2vh;
-	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	
 }
 #fotoUsuario{
