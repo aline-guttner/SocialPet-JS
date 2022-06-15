@@ -57,6 +57,7 @@
 	.foto-animal{
 		height: 80px!important;
 		width: 80px!important;
+		
 	}
 
 	.carousel-pets{
@@ -200,7 +201,7 @@ main{
 	width: 100%;
 	height: 50%;
 	object-fit: cover;
-	
+	cursor: pointer;
 }
 
 #backUpload{
@@ -238,6 +239,7 @@ main{
 	width: 90px;
 	object-fit: cover;
 	border: solid var(--color) 3px;
+	cursor: pointer;
 }
 
 .carousel-pets{
@@ -284,7 +286,7 @@ main{
 
 .foto-animal{
 	border-radius: 50%;
-	
+	cursor: pointer;
 	width: 50px;
 	height: 50px;
 	object-fit: cover;
@@ -442,6 +444,7 @@ thead td{
 	margin-top:5px;
 	width: 12px;
 	height: auto;
+	cursor: pointer;
 }
 
 
@@ -452,6 +455,7 @@ thead td{
 	margin-bottom: 3px;
 	width: 12px;
 	height: auto;
+	cursor: pointer;
 }
 
 .xis{
@@ -460,6 +464,7 @@ thead td{
 	margin-bottom: 3px;
 	width: 12px;
 	height: auto;
+	cursor: pointer;
 }
 
 .invisivel{
