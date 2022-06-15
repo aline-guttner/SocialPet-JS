@@ -234,7 +234,7 @@ main{
 
 .carousel-pets{
 	margin-left: 20px;
-	width: 90%;
+	width: 80%;
 	display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -257,19 +257,15 @@ main{
 	height: 100%;
 }
 
-
-
 .carousel-control-prev span{
 	width: 1.5rem;
 }
 
 
-
-
-
 .carousel-control-next span{
 	width: 1.5rem;
 }
+
 .foto-nome-animal{
 	display: flex;
 	flex-direction: column;
