@@ -49,19 +49,28 @@
 		height: 200px!important;
 	}
 
+	#foto-nome-usuario{
+		margin-left: 10vh!important;
+	}
+
 	#fotoUsuario{
 		height: 100px!important;
 		width: 100px!important;
+		
 	}
+
+	
 
 	.foto-animal{
 		height: 80px!important;
 		width: 80px!important;
 		
+		
 	}
 
 	.carousel-pets{
-		width: 80%!important;
+		width: 75%!important;
+		margin-left: 10vh!important;
 	}
 
 	
@@ -224,13 +233,10 @@ main{
 }
 
 
-.foto-nome-usuario{
-	display: flex;
-	flex-direction: column;
-	align-items: center!important;
-	position: absolute;
-	bottom: 50%;
-	transform: translateY(-50%);
+#foto-nome-usuario{
+	
+	margin-left: 2vh;
+	
 	
 }
 #fotoUsuario{
@@ -243,7 +249,7 @@ main{
 }
 
 .carousel-pets{
-	margin-left: 20px;
+	margin-left: 10px;
 	width: 90%;
 	display: flex;
     flex-direction: row;
