@@ -442,7 +442,7 @@ $('.editar').click(function () {
 
 })
 
-// torna os inputs não editáveis
+// torna os inputs das informações do usuário não editáveis e salva o nome do usuário
 $('.salvar').click(function () {
 
     $('.readonlyUser').prop('readonly', true)
