@@ -59,7 +59,9 @@ function mostraformulario() { // mostra formulário de postagem
     formPostagem.style.display = "block" // exibe a div do formulário
 
 }
-
+function insertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
 function postar() {
     let chamaForm = document.getElementById("chama-form") // pega a div chama form
     let formPostagem = document.getElementById("form-postagem") // pega a div form postagem
@@ -73,7 +75,7 @@ function postar() {
     let postagens = document.getElementById("area-postagens") // pegando a área onde vai ficar a postagem
     let postagem = document.createElement("div") // criar div para postagem
     postagem.classList.add("postagem") // atribuindo a classe para a div postagem
-    postagens.appendChild(postagem) // adiciona o post na área de postagens
+    insertAfter(postagem, postagens.firstElementChild.nextElementSibling) // adiciona o post na área de postagens
 
     //* elementos do post *
     let titulo = document.createElement("h2") // criar título h2 da postagem

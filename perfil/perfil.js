@@ -8,10 +8,10 @@ let file = document.getElementById("imageUpload")
 let img = document.getElementById("fotoUsuario")
 
 file.addEventListener('change', function () {
-    const choosenFile = this.files[0];
+    const chosenFile = this.files[0];
     const reader = new FileReader();
-    reader.readAsDataURL(choosenFile);
-    if (choosenFile) {
+    reader.readAsDataURL(chosenFile);
+    if (chosenFile) {
         reader.addEventListener('load', function () {
             img.setAttribute('src', reader.result);
             img.style.height = "120px";
@@ -31,10 +31,10 @@ let file2 = document.getElementById("backUpload")
 let img2 = document.getElementById("backpic")
 
 file2.addEventListener('change', function () {
-    const choosenFile = this.files[0];
+    const chosenFile = this.files[0];
     const reader = new FileReader();
-    reader.readAsDataURL(choosenFile);
-    if (choosenFile) {
+    reader.readAsDataURL(chosenFile);
+    if (chosenFile) {
         reader.addEventListener('load', function () {
             img2.setAttribute('src', reader.result);
             img2.style.height = "50%";
