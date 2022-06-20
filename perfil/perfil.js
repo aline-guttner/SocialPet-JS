@@ -411,6 +411,7 @@ function corPerfil2() {
     userOrange.style.display = 'inline';
 }
 
+// função que esconde ou mostra a navbar lateral quando clica no ícone no lado superior esquero da página. Esse ícone só aparece quando a tela for pequena; nesse caso, o menu é escondido automaticamente.
 function mostrarNavbar() {
     let mysidebar = document.querySelector('.mysidebar')
     if (mysidebar.style.display == 'none') {
