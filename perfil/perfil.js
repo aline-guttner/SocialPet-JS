@@ -1,3 +1,5 @@
+// função para abrir o seletor de arquivos e mudar a foto de perfil, não sei bem com funciona cada parte, só vi um tutorial no YouTube
+
 $("#fotoUsuario").click(function (e) {
     $("#imageUpload").click();
 });
@@ -19,6 +21,8 @@ file.addEventListener('change', function () {
     }
 })
 
+
+// mesma coisa que a função anterior, só que pra imagem de fundo
 $("#backpic").click(function (e) {
     $("#backUpload").click();
 });
@@ -40,6 +44,8 @@ file2.addEventListener('change', function () {
 
     }
 })
+
+// mesma coisa que a função anterior, só que pra imagem dos gatos
 
 $('.foto-animal').click(function (e) {
     let fotobicho = document.getElementsByClassName('foto-animal')
@@ -65,6 +71,8 @@ $('.foto-animal').click(function (e) {
     }
 })
 
+
+// essa função abre a parte que tem a tabela onde é possível adicionar animais, e puda a posição da setinha para baixo
 function abrirDados() {
     let infoAnimais = document.getElementById('info-animais')
     let source = document.getElementById('seta-direita')
@@ -79,169 +87,17 @@ function abrirDados() {
 
 }
 
-function addPet() {
-    let animais = document.getElementById('tabela-animais')
-    let animal = document.createElement('tr')
-    animal.classList.add('umanimal')
-
-    let tdNome = document.createElement('td')
-    let tdTipo = document.createElement('td')
-    let tdSalvar = document.createElement('td')
-    let tdAdicionar = document.createElement('td')
-    let tdExcluir = document.createElement('td')
-
-    let nomeAnimal = document.createElement('input')
-    nomeAnimal.setAttribute('type', 'text')
-    nomeAnimal.setAttribute('placeholder', 'Nome do pet')
-    nomeAnimal.setAttribute('aria-label', 'Digitar nome do animal')
-    nomeAnimal.classList.add('botao-estilizado', 'animalMudarNome')
-
-
-    tdNome.appendChild(nomeAnimal)
-
-    let divTipoAnimal = document.createElement('div')
-    let tipoAnimal = document.createElement('select')
-    divTipoAnimal.classList.add('form-group')
-    tipoAnimal.classList.add('form-control')
-    tipoAnimal.setAttribute('name', 'tipos')
-
-    let option1 = document.createElement('option')
-    option1.innerText = 'Gato'
-    let option2 = document.createElement('option')
-    option2.innerText = 'Cachorro'
-    let option3 = document.createElement('option')
-    option3.innerText = 'Pássaro'
-    let option4 = document.createElement('option')
-    option4.innerText = 'Cavalo'
-    let option5 = document.createElement('option')
-    option5.innerText = 'Outro'
-
-    tipoAnimal.append(option1, option2, option3, option4, option5)
-    divTipoAnimal.appendChild(tipoAnimal)
-
-    tdTipo.appendChild(divTipoAnimal)
-
-    let salvar = document.createElement('button')
-    salvar.classList.add('salvar', 'salvar-animal', 'btn', 'button')
-
-    tdSalvar.appendChild(salvar)
-
-    let maisinhoImg = document.createElement('img')
-    maisinhoImg.setAttribute('src', 'plus-16.png')
-    maisinhoImg.setAttribute('alt', 'Símbolo de adição laranja')
-    maisinhoImg.classList.add('maisinho')
-
-    maisinhoImg.addEventListener('click', function (e) {
-        var el = $(this).index();
-        function isEmpty(str) {
-            return !str.trim().length;
-        }
-        if (isEmpty(e.currentTarget.parentNode.parentNode.firstChild.firstChild.value)) {
-            return;
-        } else {
-
-            console.log(el)
-            let fotosNomesAnimais = document.getElementById('fotos-nomes-animais')
-
-            let novoanimal = document.createElement('div')
-            novoanimal.classList.add('foto-nome-animal')
-
-            let newid = Math.floor(Math.random() * 10000)
-
-            let umanimal = document.getElementsByClassName('umanimal')
-            //resolver problema com índices (criar div só pra esse animal)
-            umanimal[el].setAttribute('id', newid)
-
-            novoanimal.setAttribute('id', newid)
-
-            let botaobicho = document.createElement('input')
-            botaobicho.classList.add('botaobicho')
-            botaobicho.setAttribute('type', 'file')
-            botaobicho.setAttribute('name', 'profile-photo')
-            botaobicho.setAttribute('placeholder', 'Photo')
-            botaobicho.setAttribute('required', '')
-            botaobicho.setAttribute('capture', '')
-            botaobicho.setAttribute('aria-label', 'Trocar foto do animal')
-
-            let novafoto = document.createElement('img')
-            novafoto.classList.add('foto-animal')
-
-            novafoto.setAttribute('src', 'cameraCinza.jpg')
-
-            novafoto.addEventListener('click', function (e) {
-
-                botaobicho.click()
-                botaobicho.addEventListener('change', function () {
-                    const chosenPic = this.files[0]
-                    const reader2 = new FileReader()
-                    reader2.readAsDataURL(chosenPic)
-                    if (chosenPic) {
-                        reader2.addEventListener('load', function () {
-                            novafoto.setAttribute('src', reader2.result)
-                            novafoto.style.height = "60px";
-                            novafoto.style.width = "60px";
-                        })
-
-                        Event.stopPropagation();
-                    }
-
-                })
-            })
-
-
-
-            let nomeani = document.createElement('p')
-            nomeani.classList.add('nome-animal')
-
-            let nomedoanimal = e.currentTarget.parentNode.parentNode.firstChild.firstChild
-            console.log(nomedoanimal)
-            nomeani.innerText = nomedoanimal.value
-
-
-
-            novoanimal.append(novafoto, nomeani, botaobicho)
-            fotosNomesAnimais.appendChild(novoanimal)
-            maisinhoImg.remove()
-        }
-
-    })
-
-    tdAdicionar.appendChild(maisinhoImg)
-
-    let xis = document.createElement('img')
-    xis.setAttribute('src', 'x-mark-16.png')
-    xis.classList.add('xis')
-    xis.addEventListener('click', function (e) {
-        const cadastroId = e.currentTarget.parentNode.parentNode.id;
-        const trToBeRemoved = e.currentTarget.parentNode.parentNode;
-        trToBeRemoved.remove()
-        const tagToBeRemoved = document.getElementById(cadastroId)
-        tagToBeRemoved.remove()
-
-    })
-    tdExcluir.appendChild(xis)
-
-    animal.append(tdNome, tdTipo, tdSalvar, tdAdicionar, tdExcluir)
-
-    let tbody = document.querySelector('tbody')
-    tbody.appendChild(animal)
-}
-
-
 let carouselInner = document.getElementById('carouselInnerPet')
-
-
-
-
-
+// essa função adiciona uma linha na tabela para poder adicionar um pet
 function addPet() {
-
+    // esconder o mais faz com que só seja possível adicionar um animal de cada vez
     $('#mais').css('visibility', "hidden")
 
     let animais = document.getElementById('tabela-animais')
     let animal = document.createElement('tr')
     animal.classList.add('umanimal', 'animalAdicionado')
     let newid = Math.floor(Math.random() * 10000000)
+    // por enquanto usei esse método para gerar um id, mas quando for usar o mongodb não vai mais precisar disso
     animal.setAttribute('id', newid)
 
     let tdNome = document.createElement('td')
@@ -291,11 +147,12 @@ function addPet() {
     maisinhoImg.setAttribute('alt', 'Símbolo de adição laranja')
     maisinhoImg.classList.add('maisinho')
 
+    // essa função abaixo adiciona o novo pet ao carrossel que contém as fotos dos pets.
     maisinhoImg.addEventListener('click', function (e) {
 
         $('#mais').css('visibility', "visible")
 
-
+        // essa função faz com que não seja possível adicionar um pet com um nome vazio ao carrossel
         function isEmpty(str) {
             return !str.trim().length;
         }
@@ -308,7 +165,7 @@ function addPet() {
 
             let novoanimal = document.createElement('div')
             novoanimal.classList.add('col', 'pet', 'container', 'foto-nome-animal')
-
+            // foi um amigo programador que recomendou eu dar o mesmo id tanto para a linha da tabela que tem o animal quanto para a div do carrossel, para que depois eu possa excluir os dois juntos
             novoanimal.setAttribute('id', newid)
 
             let botaobicho = document.createElement('input')
@@ -354,17 +211,12 @@ function addPet() {
 
             nomeani.innerText = nomedoanimal.value
 
-            //let fotosNomesAnimais = carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild
 
             novoanimal.append(novafoto, nomeani, botaobicho)
 
             let lastAnimal = carouselInner.lastElementChild.lastElementChild
 
-
-
-
-            console.log($('#carouselInnerPet').find('div.row').length)
-
+            // se não tiver nenhuma div com a class row (se o usuário não tiver nenhum animal) ou se a última div com a class row tiver 3 ou mais filhos, cria-se uma nova div carousel-item com uma div row dentro dela para colocar novos filhos até dar 3. Eu não usei o || porque dava erro quando não havia nenhuma div row
             if ($('#carouselInnerPet').find('div.row').length == 0) {
                 let carouselItem = document.createElement('div')
                 carouselItem.classList.add('carousel-item', 'active')
@@ -398,14 +250,16 @@ function addPet() {
 
 
             } else {
+                // caso haja uma div que tenha apenas 1 ou 2 filhos, adiciona na mesma div sem criar uma nova
                 let row = carouselInner.lastElementChild.previousElementSibling.previousElementSibling.lastElementChild
 
 
                 row.appendChild(novoanimal)
             }
-
+            // quando o animal é adicionado, o "+" some 
             maisinhoImg.remove()
 
+            // o if abaixo só deixa aparecer a setinha do carrossel se o usuário tiver mais de 3 pets, ou seja, mais de uma div com a class row
             if ($('#carouselInnerPet').find('div.row').length <= 1) {
 
                 $('.carousel-pet-next').css('visibility', 'hidden')
@@ -427,22 +281,22 @@ function addPet() {
 
         const trToBeRemoved = e.currentTarget.parentNode.parentNode;
 
-        trToBeRemoved.remove()
+        trToBeRemoved.remove() // remove a tr do animal que o usuário quer remover
 
         const tagToBeRemoved = document.getElementById(cadastroId)
-        console.log(tagToBeRemoved.parentNode.querySelectorAll('.foto-nome-animal').length)
+
 
         if (tagToBeRemoved.parentNode.querySelectorAll('.foto-nome-animal').length > 1) {
-            tagToBeRemoved.remove()
+            tagToBeRemoved.remove() // remove só a div que contem a foto e o nome do animal, caso a div do carrossel que o contém tenha mais de 1 filho
 
         } else {
             let carouselItem = tagToBeRemoved.parentNode.parentNode
             carouselItem.classList.remove('active')
             if (carouselItem.previousElementSibling) {
-                carouselItem.previousElementSibling.classList.add('active')
+                carouselItem.previousElementSibling.classList.add('active') // caso exista, a div anterior que contém animais se torna o item ativo do carrossel se o animal excluído pertencer a uma div com apenas 1 animal, pois essa div será excluída para não ficar uma div vazia.
                 carouselItem.remove()
             } else {
-                carouselItem.remove()
+                carouselItem.remove() // caso não exista uma div anterior com animais, apenas excluí o item do carrossel que tem esse animal
             }
 
         }
@@ -454,6 +308,12 @@ function addPet() {
             $('.carousel-pet-next').css('visibility', 'visible')
         }
 
+        // apenas esconde o "nome" e "tipo" da tabela, casa não haja nenhum animal nela
+        if ($('tbody').children().length == 0) {
+            $("thead").hide();
+        } else {
+            $("thead").show();
+        }
     })
 
     tdExcluir.appendChild(xis)
@@ -466,9 +326,9 @@ function addPet() {
 
 }
 
+// mesma coisa que a função de excluir os animais acima, só que pros animais que já existem (que o usuário não adicionou, tipo Gatildo, Bichano, etc)
 $('.xis').click(function (e) {
     const cadastroId2 = e.currentTarget.parentNode.parentNode.id;
-
 
 
     const trToBeRemoved2 = e.currentTarget.parentNode.parentNode;
@@ -501,35 +361,13 @@ $('.xis').click(function (e) {
 })
 
 
-
-
-
-$('document').ready(function (e) {
-    document.getElementById("postagensUsuario").innerHTML =
-        '<object type="text/html" style="height:100%" width="100%" data="../Feed/feed.html"></object>';
-
-})
-
 function salvarUser() {
     let novoNome = document.getElementById('novoNome').value
     document.querySelector('.nome-usuario').innerHTML = novoNome
 }
 
-$('.salvar-animal').click(function (e) {
-    let salvarAnimal = document.getElementsByClassName('salvar-animal')
-    for (i = 0; i < salvarAnimal.length; i++) {
-        let nomeAnimal = document.getElementsByClassName('nomeAnimal')[i].value
-        document.getElementsByClassName('bichop')[i].innerHTML = nomeAnimal
 
-    }
-})
-
-
-
-//refazendo
-
-
-
+// as funções de cor abaixo apenas mudam o ícone dos itens principais do menu lateral e a background color deles quando passa o mouse por cima
 
 function corPatinha() {
     let pawWhite = document.getElementById('pawWhite')
@@ -585,24 +423,7 @@ function mostrarNavbar() {
 
 }
 
-$('.editar').hover(hoverEditar, leaveEditar
-)
-
-
-function hoverEditar(e) {
-    let lapinho = document.getElementsByClassName('lapinho')
-    for (i = 0; i < lapinho.length; i++) {
-        lapinho[i].style.display = "inline"
-    }
-}
-
-function leaveEditar(e) {
-    let lapinho = document.getElementsByClassName('lapinho')
-    for (i = 0; i < lapinho.length; i++) {
-        lapinho[i].style.display = "none"
-    }
-}
-
+// a função abaixo faz com que os inputs do usuário percam a propriedade "readonly", ou seja, se tornem editáveis. Também criam um underline laranja embaixo dos inputs para que o usário perceba que pode editar eles. 
 $('.editar').click(function () {
     $('.readonlyUser').removeAttr('readonly')
     let readonlyUser = document.querySelectorAll('.readonlyUser')
@@ -611,6 +432,7 @@ $('.editar').click(function () {
     })
     let salvar = document.querySelectorAll('.salvar')
     salvar.forEach(btnSalvar => {
+        // Quando o usuário clica em editar, o botão editar some e o de salvar aparece e vice-versa.
         btnSalvar.style.display = 'inline'
     })
     let editar = document.querySelectorAll('.editar')
@@ -620,7 +442,9 @@ $('.editar').click(function () {
 
 })
 
+// torna os inputs não editáveis
 $('.salvar').click(function () {
+
     $('.readonlyUser').prop('readonly', true)
     let readonlyUser = document.querySelectorAll('.readonlyUser')
 
@@ -636,41 +460,7 @@ $('.salvar').click(function () {
     salvar.forEach(btnSalvar => {
         btnSalvar.style.display = 'none'
     })
-})
-
-$('.editarPet').click(function () {
-    $('.readonly').removeAttr('readonly')
-    let readonly = document.querySelectorAll('.readonly')
-    readonly.forEach(btn => {
-        btn.classList.add('underline')
-    })
-    let salvarPet = document.querySelectorAll('.salvarPet')
-    salvarPet.forEach(btnSalvar => {
-        btnSalvar.style.display = 'inline'
-    })
-    let editarPet = document.querySelectorAll('.editarPet')
-    editarPet.forEach(btnEditar => {
-        btnEditar.style.display = 'none'
-    })
-
-})
-
-$('.salvarPet').click(function () {
-    $('.readonly').prop('readonly', true)
-    let readonly = document.querySelectorAll('.readonly')
-
-    readonly.forEach(btn => {
-        btn.classList.remove('underline')
-
-    })
-    let editarPet = document.querySelectorAll('.editarPet')
-    editarPet.forEach(btnEditar => {
-        btnEditar.style.display = 'inline'
-    })
-    let salvarPet = document.querySelectorAll('.salvarPet')
-    salvarPet.forEach(btnSalvar => {
-        btnSalvar.style.display = 'none'
-    })
+    salvarUser()
 })
 
 if ($('#carouselInnerPet').find('div.row').length <= 1) {
