@@ -72,7 +72,7 @@ $('.foto-animal').click(function (e) {
 })
 
 
-// essa função abre a parte que tem a tabela onde é possível adicionar animais, e puda a posição da setinha para baixo
+// essa função abre a parte que tem a tabela onde é possível adicionar animais, e muda a posição da setinha para baixo
 function abrirDados() {
     let infoAnimais = document.getElementById('info-animais')
     let source = document.getElementById('seta-direita')
@@ -209,7 +209,7 @@ function addPet() {
 
             let nomedoanimal = e.currentTarget.parentNode.parentNode.firstChild.firstChild
 
-            nomeani.innerText = nomedoanimal.value
+            nomeani.innerText = nomedoanimal.value // deixando o nome embaixo da foto do animal igual ao que foi colocado no input
 
 
             novoanimal.append(novafoto, nomeani, botaobicho)
