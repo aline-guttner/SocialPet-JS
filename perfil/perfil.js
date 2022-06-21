@@ -45,7 +45,7 @@ file2.addEventListener('change', function () {
     }
 })
 
-// mesma coisa que a função anterior, só que pra imagem dos gatos
+// mesma coisa que a função anterior, só que pra imagem dos animais
 
 $('.foto-animal').click(function (e) {
     let fotobicho = document.getElementsByClassName('foto-animal')
@@ -90,7 +90,7 @@ function abrirDados() {
 let carouselInner = document.getElementById('carouselInnerPet')
 // essa função adiciona uma linha na tabela para poder adicionar um pet
 function addPet() {
-    // esconder o mais faz com que só seja possível adicionar um animal de cada vez
+    // esconder o "+" que fica embaixo da tabela faz com que só seja possível adicionar um animal de cada vez
     $('#mais').css('visibility', "hidden")
 
     let animais = document.getElementById('tabela-animais')
