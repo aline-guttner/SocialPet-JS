@@ -62,10 +62,11 @@ function mostraformulario() { // mostra formulário de postagem
 
 }
 
+//a função abaixo é para adicionar imagens ao formulário de postagem
 let formImagem = document.getElementById("imagem")
 formImagem.addEventListener('change', function () {
 
-    const chosenFile = this.files[0];
+    const chosenFile = this.files[0];//agora só da pra escolher uma imagem, mas depois vou tentar fazer dar pra colocar várias
 
     const reader = new FileReader();
     reader.readAsDataURL(chosenFile);
@@ -81,13 +82,13 @@ formImagem.addEventListener('change', function () {
             let newid = Math.floor(Math.random() * 10000000)
             img.setAttribute('id', newid)
 
-            let imgXis = document.createElement('img')
+            let imgXis = document.createElement('img')// o "x" para excluir a imagem do formulário
             imgXis.setAttribute('src', '../perfil/x-mark-16.png')
             imgXis.classList.add('imgXis')
             imgXis.setAttribute('alt', 'Símbolo em formato de X')
             imgXis.setAttribute('aria-label', 'Clicar no X exclui a imagem')
             imgXis.addEventListener('click', function (e) {
-                this.parentNode.remove()
+                this.parentNode.remove()// se clicar no "x" ao lado da miniatura de foto, ela é excluída do formulário
             })
 
             imgDiv.append(img, imgXis)
@@ -182,25 +183,26 @@ function postar() {
     if (formImagens.length === 0) {
         return
     } else if (formImagens.length === 1) {
-
+        //se só houver uma imagem, simplismente coloca ela na postagem, sem carrossel
         let imagemPost = document.createElement("img") // criar elemento img
         imagemPost.classList.add('img-fluid')
         imagemPost.src = formImagens[0].src
         postagem.appendChild(imagemPost)
     }
     else {
-
+        //aqui cria um carrossel caso seja mais de uma imagem, eu não sabia outra forma melhor de colocar várias imagens em uma mesma postagem
         let Carousel = document.createElement('div')
 
         Carousel.setAttribute('id', 'carouselExampleControls')
         Carousel.classList.add('carousel', 'slide')
         Carousel.setAttribute('data-bs-ride', 'carousel')
+        Carousel.setAttribute('data-bs-interval', '999999999999999')
 
         let carouselInner = document.createElement('div')
         carouselInner.classList.add('carousel-inner')
 
         for (i = 0; i < formImagens.length; i++) {
-
+            // esse for cria um item de carrossel para cada imagem que for adicionada ao post
             let carouselItem = document.createElement('div')
             carouselItem.classList.add('carousel-item')
 
@@ -212,9 +214,10 @@ function postar() {
             carouselItem.appendChild(carouselImg)
             carouselInner.appendChild(carouselItem)
         }
+        //a primeira imagem adicionada será a ativa
         carouselInner.firstChild.classList.add('active')
 
-
+        //o controle para ir para a imagem anterior
         let controlPrev = document.createElement('button')
         controlPrev.classList.add('carousel-control-prev')
         controlPrev.setAttribute('data-bs-target', `#carouselExampleControls`)
@@ -231,6 +234,7 @@ function postar() {
 
         controlPrev.append(prevIcon, vHidden)
 
+        // o controle para ir para a imagem posterior
         let controlNext = document.createElement('button')
         controlNext.classList.add('carousel-control-next')
         controlNext.setAttribute('data-bs-target', `#carouselExampleControls`)
