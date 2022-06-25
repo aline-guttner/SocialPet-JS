@@ -196,7 +196,7 @@ function postar() {
         Carousel.setAttribute('id', 'carouselExampleControls')
         Carousel.classList.add('carousel', 'slide')
         Carousel.setAttribute('data-bs-ride', 'carousel')
-        Carousel.setAttribute('data-bs-interval', '999999999999999')
+        Carousel.setAttribute('data-bs-interval', '9999999999999')
 
         let carouselInner = document.createElement('div')
         carouselInner.classList.add('carousel-inner')
