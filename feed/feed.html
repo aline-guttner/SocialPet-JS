@@ -97,24 +97,28 @@
             <div id="form-postagem" style="display: none;">
                 <h2>Nova postagem:</h2>
                 <div>
-                    <input id="titulo" type="text" onfocus="this.value=''" required
-                        aria-label="Escrever título da postagem" />
-                    <span class="floating-label">&nbsp;Título da postagem &nbsp;</span>
+                    <input id="titulo" type="text" required aria-label="Escrever título da postagem" />
+                    <span class="floating-label">&nbsp;Título &nbsp;</span>
                 </div>
                 <div>
                     <input id="conteudo" type="text" onfocus="this.value=''" required
                         aria-label="Escrever conteúdo da postagem" />
-                    <span class="floating-label">&nbsp;Conteúdo da postagem &nbsp;</span>
+                    <span class="floating-label">&nbsp;Conteúdo &nbsp;</span>
                 </div>
-                <div>
-                    <input id="imagem" type="text" onfocus="this.value=''" required
-                        aria-label="Colocar URL da imagem que deseja postar" />
+                <div id="divImagemPostar">
+                    <label id="imagemPostLabel" for="imagem">
+                        <p>Inserir imagem</p>
+                    </label>
+                    <input id="imagem" type="file" required aria-label="Selecionar magem para postagem" />
                     <!--posta o formulário-->
-                    <span class="floating-label">&nbsp;URL da imagem &nbsp;</span>
+
                 </div>
                 <button onclick="postar()">Postar</button>
             </div>
             <!--Final formulário de postagem -->
+
+
+
 
             <div class="postagem">
                 <!--Abertura da postagem 1-->
@@ -157,7 +161,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-    <script async src="https://srv2.weatherwidget.org/js/?id=ww_d44dd463517c8"></script>
+    <script src="utils.js"></script>
     <script src="feed.js"></script>
 
 

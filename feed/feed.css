@@ -198,6 +198,7 @@ input:not(:focus):valid ~ .floating-label {
 	left: -50%;
 	top: 2px;
 	transition: 0.2s ease all;
+	color: #A4A4A4;
     
 }
 #botaoformulario {
@@ -217,6 +218,7 @@ font-weight: bolder;
 	padding: 15px;
 	
 	background-color: white;
+	
 }
 #form-postagem input {
 	font-size: 14px;
@@ -225,6 +227,7 @@ font-weight: bolder;
 	width: 50%;
 	color: #A4A4A4;
     border: solid 1px var(--color);
+	padding-left: 10px;
 }
 #form-postagem input:focus {
 	color: black;
@@ -245,7 +248,73 @@ font-weight: bolder;
     background-color: var(--color);
     color: var(--color2);
 }
+input[type="file"] {
+    display: none;
+}
 
+#imagemPostLabel{
+	font-size: 14px;
+    height: 35px;
+    margin-bottom: 10px;
+    width: 150px;
+    color: var(--color);
+    border: solid 1px var(--color);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items:center;
+}
+
+#imagemPostLabel:hover{
+	background-color: var(--color);
+	color: var(--color2);
+	cursor: pointer;
+}
+
+#imagemPostLabel p{
+	margin-bottom: 0!important;
+	font-size: medium;
+
+}
+
+.dadoPostagem{
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.imgFormDiv{
+	overflow: hidden;
+	height: 35px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	
+}
+.imgFormPostagem{
+	object-fit: cover;
+	display: inline;
+	-webkit-filter: grayscale(1);
+	/* Webkit */
+	filter: gray;
+	/* IE6-9 */
+	filter: grayscale(1);
+	/* W3C */
+	width: 100px;
+	height: 35px;
+	border: solid 1px var(--bkcolor);
+	
+}
+
+.imgXis{
+	
+	padding: 5px;
+	display: inline;
+	width: 22px;
+	object-fit: contain;
+	cursor: pointer;
+}
 /** Área de conteúdo principal **/
 
 
@@ -259,19 +328,43 @@ font-weight: bolder;
 	margin-top: 15px;
 	margin-bottom: 15px;
 	background: white;
+	display: flex;
+	flex-direction: column;
+justify-content: center;
+	
 
 	
 }
 .postagem img  {
 	margin-top: 20px;
+	margin-bottom: 20px;
 	object-fit: contain;
 	max-width: 100%;
+}
+
+
+
+
+.imagemPostadaCarousel{
+	padding: 0 20px 0 20px;
+	margin-left: 50%;
+	transform: translate(-50%);
+}
+
+.prevImgPostada{
+background-color: var(--color3);
+padding: 2px;
+}
+
+.nextImgPostada{
+	background-color: var(--color3);
 }
 .conteudo {
 	margin-top: 10px;
 	margin: 0;
 	text-align: justify;
 	line-height: 1.5;
+	
 }
 
 .curtir {
