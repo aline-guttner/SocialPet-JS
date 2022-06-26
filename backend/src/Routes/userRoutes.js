@@ -7,4 +7,6 @@ userRouter.get('/userhome', controller.userHome)
 
 userRouter.get('/', controller.getAllUsers)
 
+userRouter.post('/', controller.createUser)
+
 module.exports = userRouter;
