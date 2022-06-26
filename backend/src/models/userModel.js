@@ -33,7 +33,12 @@ const userSchema = new mongoose.Schema({
         },
         petType: String,
         petImg: String
-    }]
+    }],
+    phone: {
+        type: String,
+        required: true,
+        default: "(00)0000-0000"
+    }
 
 })
 
