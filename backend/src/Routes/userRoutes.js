@@ -11,5 +11,7 @@ userRouter.post('/', controller.createUser)
 
 userRouter.patch('/:id', controller.getUser, controller.updateUser)
 
+userRouter.delete('/:id', controller.getUser, controller.deleteUser)
+
 module.exports = userRouter;
 

@@ -23,3 +23,8 @@ Content-Type: application/json
 {
     "name":"Jão do bem"
 }
+
+###
+
+DELETE http://localhost:3000/users/62b8c558dbc6498c89986a95
+

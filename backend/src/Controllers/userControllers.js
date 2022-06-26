@@ -61,6 +61,14 @@ const updateUser = async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 }
+const deleteUser = async (req, res) => {
+    try {
+        await res.user.remove()
+        res.json({ message: "Deleted user" })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+}
 
 async function getUser(req, res, next) {
     let user
@@ -83,6 +91,7 @@ module.exports = {
     getAllUsers,
     createUser,
     updateUser,
+    deleteUser,
     getUser
 };
 
