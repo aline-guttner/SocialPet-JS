@@ -9,7 +9,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	flex-wrap: wrap;
+	
 	
 }
 
@@ -50,6 +50,11 @@
 
     }
 
+	.postagemImg{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
 }
 
 @media (min-width: 992px) { 
@@ -69,6 +74,7 @@ body{
 	background-color: var(--bkcolor) ;
 	color: var(--color)!important;
 	font-family: 'Quicksand', sans-serif!important;
+	
 }
 .mynavbar{
     background-color: var(--color);
@@ -324,29 +330,41 @@ input[type="file"] {
 	height: 100%;
 }
 .postagem {
-	padding: 20px;
+	padding-top:20px;
+	padding-bottom: 20px;
 	margin-top: 15px;
 	margin-bottom: 15px;
 	background: white;
 	display: flex;
 	flex-direction: column;
 justify-content: center;
+}
 	
-
+.postagem h2, .postagem span, .postagem p, .conteudo{
+	padding-left: 20px;
+	padding-right: 20px;
 	
 }
+	
+
 .postagem img  {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	object-fit: contain;
 	max-width: 100%;
+	
+
 }
 
+.paddingLR{
+	padding-left: 20px;
+	padding-right: 20px;
+}
 
 
 
 .imagemPostadaCarousel{
-	padding: 0 20px 0 20px;
+	
 	margin-left: 50%;
 	transform: translate(-50%);
 }
@@ -366,6 +384,7 @@ padding: 2px;
 	line-height: 1.5;
 	
 }
+
 
 .curtir {
 	margin-top: 10px;

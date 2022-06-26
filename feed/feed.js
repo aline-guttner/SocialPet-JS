@@ -128,6 +128,7 @@ function postar() {
     //* elementos do post *
     let titulo = document.createElement("h2") // criar título h2 da postagem
     titulo.innerHTML = formTitulo // adicionou o conteúdo ao título h2
+    titulo.classList.add('paddingLR')
     postagem.appendChild(titulo) // adicionou o título na postagem
 
     let dataPost = document.createElement("span") // criar elemento span
@@ -176,6 +177,7 @@ function postar() {
 
 
     dataPost.innerHTML = `postado em ${data.getDate()} de ${mes} de ${data.getFullYear()}`
+    dataPost.classList.add('paddingLR')
     postagem.appendChild(dataPost)
 
 
@@ -185,7 +187,7 @@ function postar() {
     } else if (formImagens.length === 1) {
         //se só houver uma imagem, simplismente coloca ela na postagem, sem carrossel
         let imagemPost = document.createElement("img") // criar elemento img
-        imagemPost.classList.add('img-fluid')
+        imagemPost.classList.add('img-fluid', 'postagemImg')
         imagemPost.src = formImagens[0].src
         postagem.appendChild(imagemPost)
     }
@@ -207,7 +209,7 @@ function postar() {
             carouselItem.classList.add('carousel-item')
 
             let carouselImg = document.createElement('img')
-            carouselImg.classList.add('img-fluid', 'd-block', 'imagemPostadaCarousel')
+            carouselImg.classList.add('img-fluid', 'd-block', 'imagemPostadaCarousel', 'postagemImg')
             carouselImg.src = formImagens[i].src
 
 
@@ -261,6 +263,7 @@ function postar() {
 
     let conteudo = document.createElement("p") // criar conteúdo da postagem
     conteudo.innerHTML = formConteudo // adicionou o conteúdo 
+    conteudo.classList.add('paddingLR')
     postagem.appendChild(conteudo) // adicionou o conteúdo na postagem 
     conteudo.setAttribute("id", "conteudo")
 
