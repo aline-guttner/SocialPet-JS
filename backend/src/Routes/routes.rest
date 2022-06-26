@@ -14,3 +14,12 @@ Content-Type: application/json
     "email":"fulano@detal.com",
     "password":"password"
 }
+
+###
+
+PATCH http://localhost:3000/users/62b8c558dbc6498c89986a95
+Content-Type: application/json
+
+{
+    "name":"Jão do bem"
+}

@@ -35,10 +35,55 @@ const createUser = async (req, res) => {
     }
 }
 
+const updateUser = async (req, res) => {
+    if (req.body.name != null) {
+        res.user.name = req.body.name
+    }
+    if (req.body.username != null) {
+        res.user.username = res.body.username
+    }
+    if (req.body.email != null) {
+        res.user.email = req.body.email
+    }
+    if (req.body.password != null) {
+        res.user.password = res.body.password
+    }
+    if (req.body.birthDate != null) {
+        res.user.birthDate = req.body.birthDate
+    }
+    if (req.body.phone != null) {
+        res.user.phone = res.body.phone
+    }
+    try {
+        const updatedUser = await res.user.save()
+        res.json(updatedUser)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+}
+
+async function getUser(req, res, next) {
+    let user
+    try {
+        user = await User.findById(req.params.id)
+        if (user == null) {
+            return res.status(404).json({ message: 'Cannot find user' })
+
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+    res.user = user
+    next()
+}
+
+
 module.exports = {
     userHome,
     getAllUsers,
-    createUser
+    createUser,
+    updateUser,
+    getUser
 };
 
 
