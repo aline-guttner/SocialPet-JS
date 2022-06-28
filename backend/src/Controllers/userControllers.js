@@ -70,6 +70,10 @@ class userController {
         if (req.body.email != null) {
             res.user.email = req.body.email
         }
+        if (req.body.password != null) {
+            req.user.password = req.body.password
+        }
+
         if (req.body.birthDate != null) {
             res.user.birthDate = req.body.birthDate
         }

@@ -10,8 +10,8 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username":"fulano.detal",
-    "email":"fulano@detal.com",
+    "username":"dlkasjdskaljdalksjdas",
+    "email":"fulano@dkasdjaslkdjas.com",
     "password":"password"
 }
 
@@ -21,11 +21,12 @@ GET http://localhost:3000/users/62baf41abe70613c3f4be5a4
 
 ###
 
-PATCH http://localhost:3000/users/62baf41abe70613c3f4be5a4
+PATCH http://localhost:3000/users/62bb0e30719909176eac8f61
 Content-Type: application/json
 
 {
-    "name":"Jirão"
+    "name":"Jirão",
+    "password":"password"
 }
 
 ###
@@ -34,8 +35,19 @@ DELETE http://localhost:3000/users/62b8c3ae37e00164124fbce4
 
 ###
 
-POST http://localhost:3000/users/62b8c558dbc6498c89986a95
+POST http://localhost:3000/auth/register
 
 {
-    
+    "email":"emilson@emilson.com",
+    "password":"lun"
+}
+
+###
+
+POST http://localhost:3000/auth/login
+
+{
+    "email":"emilson@emilson.com",
+    "password":""
+}
 }
