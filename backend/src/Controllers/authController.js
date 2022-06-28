@@ -12,6 +12,7 @@ class AuthController {
         const possibleUser = await User.findOne({ email })
         if (possibleUser) {
             response.status(400).send({ error: "Usuário já cadastrado" })
+            return
         }
 
         const user = await User.create(request.body)
