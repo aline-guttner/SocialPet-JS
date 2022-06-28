@@ -1,14 +1,14 @@
-const Post = require('../models/postModel.js')
-const axios = require('axios')
+import Post from "../models/postModel.js"
 
-const postHome = (req, res) => {
-    console.log('REQUISIÇÃO', req);
-    res.status(200).send({
-        "message": "Olá, pessoa!"
-    });
-};
+class postController {
+    static postHome = (req, res) => {
+        console.log('REQUISIÇÃO', req);
+        res.status(200).send({
+            "message": "Olá, pessoa!"
+        });
+    };
+}
 
-module.exports = {
-    postHome
 
-};
+
+export default postController;

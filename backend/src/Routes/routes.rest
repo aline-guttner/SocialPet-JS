@@ -2,11 +2,11 @@ GET http://localhost:3000/users/userhome
 
 ###
 
-GET http://localhost:3000/users
+GET http://localhost:3000/auth/
 
 ###
 
-POST http://localhost:3000/users
+POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3000/users/62b8c558dbc6498c89986a95
+PATCH http://localhost:3000/auth/62b8c558dbc6498c89986a95
 Content-Type: application/json
 
 {
@@ -28,3 +28,10 @@ Content-Type: application/json
 
 DELETE http://localhost:3000/users/62b8c558dbc6498c89986a95
 
+###
+
+POST http://localhost:3000/users/62b8c558dbc6498c89986a95
+
+{
+    
+}

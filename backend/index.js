@@ -1,6 +1,9 @@
-const app = require('./src/app')
-const PORT = 3000
+// const app = require('./src/app')
+import app from "./src/app.js"
 
-app.listen(PORT, () => {
-    console.log('Servidor rodando na porta ' + PORT)
+// const PORT = 3000
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log('Servidor rodando na porta ' + port)
 })
