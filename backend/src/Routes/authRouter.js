@@ -8,5 +8,14 @@ router.post("/login", Authcontroller.login)
 // router.post("/forgot-password", undefined)
 // router.post("/reset-password", undefined)
 
+router.get('/userhome', Authcontroller.userHome)
 
-export default router;
+router.get('/', Authcontroller.getAllUsers)
+
+router.get('/:id', Authcontroller.getOneUser)
+
+router.patch('/:id', Authcontroller.updateUser)
+
+router.delete('/:id', Authcontroller.deleteUser)
+
+export default router; //dsaas

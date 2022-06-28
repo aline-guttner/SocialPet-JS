@@ -1,8 +1,8 @@
-GET http://localhost:3000/users/userhome
+GET http://localhost:3000/auth/userhome
 
 ###
 
-GET http://localhost:3000/users/
+GET http://localhost:3000/auth/
 
 ###
 
@@ -10,44 +10,75 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username":"dlkasjdskaljdalksjdas",
-    "email":"fulano@dkasdjaslkdjas.com",
+    "username":"dlkasjdskdsadasdassjdas",
+    "email":"fulano@dkasasdasdas.com",
     "password":"password"
 }
 
 ###
 
-GET http://localhost:3000/users/62baf41abe70613c3f4be5a4
+GET http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
 
 ###
 
-PATCH http://localhost:3000/users/62bb0e30719909176eac8f61
+PATCH http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
 Content-Type: application/json
 
 {
-    "name":"Jirão",
-    "password":"password"
+    "name":"Jirdasdasdasão"
 }
 
 ###
 
-DELETE http://localhost:3000/users/62b8c3ae37e00164124fbce4
+DELETE http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
 
 ###
 
 POST http://localhost:3000/auth/register
+Content-Type: application/json
 
 {
-    "email":"emilson@emilson.com",
-    "password":"lun"
+    "email":"raiodesoln@emilson.com",
+    "password":"luna"
 }
 
 ###
 
 POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+    {
+        "email":"raiodesoln@emilson.com",
+        "password":"luna" 
+    }
+
+###
+
+POST http://localhost:3000/posts/
+Content-Type: application/json
 
 {
-    "email":"emilson@emilson.com",
-    "password":""
+    "title":"Novo Post",
+    "userId":"62b8c3ae37e00164124fbce4"
 }
+
+###
+
+GET http://localhost:3000/posts/
+
+###
+
+GET http://localhost:3000/posts/62bb3f4949a2b547d3479d94
+
+###
+
+PATCH http://localhost:3000/posts/62bb41c3d58a03473478d74a
+Content-Type: application/json
+
+{
+    "content": "Conteúdo novíssimdsadasdasdassssdaso"
 }
+
+###
+
+DELETE http://localhost:3000/posts/62bb41c3d58a03473478d74a

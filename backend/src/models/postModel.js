@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema({
         required: true,
         default: Date.now()
     },
-    userId: {
+    userId: {// esse userId é pra filtrar os posts daquele usuário e fazer eles aparecerem no perfil do usuário
         type: String,
         required: true
     },
@@ -18,7 +18,8 @@ const postSchema = new mongoose.Schema({
         type: String
     }],
     content: {
-        type: String
+        type: String,
+        default: ""
     }
 
 })

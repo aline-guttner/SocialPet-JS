@@ -4,4 +4,14 @@ const postRouter = express.Router();
 
 postRouter.get('/posthome', controller.postHome)
 
+postRouter.post('/', controller.createPost)
+
+postRouter.get('/', controller.getAllPosts)
+
+postRouter.get('/:id', controller.getOnePost)
+
+postRouter.patch('/:id', controller.updatePost)
+
+postRouter.delete('/:id', controller.deletePost)
+
 export default postRouter;

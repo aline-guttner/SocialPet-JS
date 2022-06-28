@@ -11,8 +11,6 @@ import authRouter from "./Routes/authRouter.js"
 
 import postRoutes from "./Routes/postRoutes.js"
 
-import userRoutes from "./Routes/userRoutes.js"
-
 dotenv.config();
 
 database.on('error', (error) => console.error(error)); //alterado
@@ -38,9 +36,6 @@ app.use("/auth", authRouter)
 
 app.use('/posts', postRoutes)
 
-
-
-app.use('/users', userRoutes)
 
 // module.exports = app; 
 export default app;
