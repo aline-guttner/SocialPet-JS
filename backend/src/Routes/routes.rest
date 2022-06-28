@@ -2,7 +2,7 @@ GET http://localhost:3000/users/userhome
 
 ###
 
-GET http://localhost:3000/auth/
+GET http://localhost:3000/users/
 
 ###
 
@@ -17,16 +17,20 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3000/auth/62b8c558dbc6498c89986a95
+GET http://localhost:3000/users/62baf41abe70613c3f4be5a4
+
+###
+
+PATCH http://localhost:3000/users/62baf41abe70613c3f4be5a4
 Content-Type: application/json
 
 {
-    "name":"Jão do bem"
+    "name":"Jirão"
 }
 
 ###
 
-DELETE http://localhost:3000/users/62b8c558dbc6498c89986a95
+DELETE http://localhost:3000/users/62b8c3ae37e00164124fbce4
 
 ###
 

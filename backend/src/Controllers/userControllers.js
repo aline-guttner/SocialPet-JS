@@ -18,6 +18,19 @@ class userController {
         }
     }
 
+    static getOneUser = async (req, res) => {
+        try {
+            const user = await User.findById(req.params.id)
+            if (user == null) {
+                return res.status(404).json({ message: 'Cannot find user' })
+
+            }
+            res.send(user)
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+    }
+
     static createUser = async (req, res) => {
         const user = new User({
             username: req.body.username,
@@ -37,6 +50,17 @@ class userController {
     }
 
     static updateUser = async (req, res) => {
+        let user
+        try {
+            user = await User.findById(req.params.id)
+            if (user == null) {
+                return res.status(404).json({ message: 'Cannot find user' })
+
+            }
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+        res.user = user
         if (req.body.name != null) {
             res.user.name = req.body.name
         }
@@ -45,9 +69,6 @@ class userController {
         }
         if (req.body.email != null) {
             res.user.email = req.body.email
-        }
-        if (req.body.password != null) {
-            res.user.password = res.body.password
         }
         if (req.body.birthDate != null) {
             res.user.birthDate = req.body.birthDate
@@ -59,10 +80,22 @@ class userController {
             const updatedUser = await res.user.save()
             res.json(updatedUser)
         } catch (err) {
+            console.log(user)
             res.status(400).json({ message: err.message })
         }
     }
     static deleteUser = async (req, res) => {
+        let user
+        try {
+            user = await User.findById(req.params.id)
+            if (user == null) {
+                return res.status(404).json({ message: 'Cannot find user' })
+
+            }
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+        res.user = user
         try {
             await res.user.remove()
             res.json({ message: "Deleted user" })

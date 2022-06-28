@@ -5,24 +5,22 @@ import bcrypt from "bcryptjs"
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
         default: "seu.usuario"
     },
     name: {
         type: String,
-        // required: true,
         default: "Seu nome"
 
     },
     email: {
         type: String,
         unique: true, //alterado
-        required: true,
+
         lowecase: true //alterado
     },
     password: {
         type: String,
-        required: true,
+
         select: false //alterado
     },
     birthDate: {
@@ -48,8 +46,10 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.pre("save", async function (next) {
-    const hash = await bcrypt.hash(this.password, 10);
-    this.password = hash;
+    if (this.password) {
+        const hash = await bcrypt.hash(this.password, 10);
+        this.password = hash;
+    }
     next();
 });
 
