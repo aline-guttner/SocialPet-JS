@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        default: "xxxxxx",
         select: false //alterado
     },
     birthDate: {
