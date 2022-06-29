@@ -84,18 +84,7 @@ class AuthController {
     }
 
     static updateUser = async (req, res) => {
-        const { email, name, username, password, birthDate, phone } = req.body;
-
-        let user = await User.findOneAndUpdate({ email, name, username, password, birthDate, phone }).select("+password")
-
-        let oldUser = user
-        let update = req.body
-        let newUser = { ...oldUser, ...update }
-        user = newUser
-
-        return res.send(user)
-
-        /* let user
+        let user
         try {
             user = await User.findById(req.params.id)
             if (user == null) {
@@ -127,7 +116,7 @@ class AuthController {
         } catch (err) {
             console.log(user)
             res.status(400).json({ message: err.message })
-        }*/
+        }
     }
     static deleteUser = async (req, res) => {
         let user

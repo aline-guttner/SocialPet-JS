@@ -10,8 +10,8 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username":"dlkasjdskdsadasdassjdas",
-    "email":"fulano@dkasasdasdas.com",
+    "username":"Ddasdaso",
+    "email":"ddarsdao@dope.com",
     "password":"password"
 }
 
@@ -21,11 +21,12 @@ GET http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
 
 ###
 
-PATCH http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
+PATCH http://localhost:3000/auth/62bba8d8e274f532e1e00a0b
 Content-Type: application/json
 
 {
-    "name":"Jirdasdasdasão"
+    "username": "Jirdadasdasdasdasão",
+    "name": "Seu nome"
 }
 
 ###
@@ -58,7 +59,7 @@ POST http://localhost:3000/posts/
 Content-Type: application/json
 
 {
-    "title":"Novo Post",
+    "title":"Nposdasdas",
     "userId":"62b8c3ae37e00164124fbce4"
 }
 
@@ -68,11 +69,11 @@ GET http://localhost:3000/posts/
 
 ###
 
-GET http://localhost:3000/posts/62bb3f4949a2b547d3479d94
+GET http://localhost:3000/posts/62bb924e8420afaa8cae8a41
 
 ###
 
-PATCH http://localhost:3000/posts/62bb41c3d58a03473478d74a
+PATCH http://localhost:3000/posts/62bb9ac7f4575d5388d87859
 Content-Type: application/json
 
 {
@@ -81,4 +82,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/posts/62bb41c3d58a03473478d74a
+DELETE http://localhost:3000/posts/62bb924e8420afaa8cae8a41

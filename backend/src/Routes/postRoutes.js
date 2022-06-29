@@ -10,7 +10,7 @@ postRouter.get('/', controller.getAllPosts)
 
 postRouter.get('/:id', controller.getOnePost)
 
-postRouter.patch('/:id', controller.updatePost)
+postRouter.patch('/', controller.updatePost)
 
 postRouter.delete('/:id', controller.deletePost)
 
