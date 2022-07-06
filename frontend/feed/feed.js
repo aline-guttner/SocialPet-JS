@@ -138,11 +138,14 @@ function postar() {
     postagem.classList.add("postagem") // atribuindo a classe para a div postagem
     insertAfter(postagem, postagens.firstElementChild.nextElementSibling) // adiciona o post na área de postagens
 
-    //* elementos do post *
-    let titulo = document.createElement("h2") // criar título h2 da postagem
-    titulo.innerHTML = formTitulo // adicionou o conteúdo ao título h2
-    titulo.classList.add('paddingLR')
-    postagem.appendChild(titulo) // adicionou o título na postagem
+    if (formTitulo) {
+        //* elementos do post *
+        let titulo = document.createElement("h2") // criar título h2 da postagem
+        titulo.innerHTML = formTitulo // adicionou o conteúdo ao título h2
+        titulo.classList.add('paddingLR')
+        postagem.appendChild(titulo) // adicionou o título na postagem
+    }
+
 
     let dataPost = document.createElement("span") // criar elemento span
     dataPost.classList.add("data-postagem") // atribuindo a classe para o span
@@ -273,12 +276,43 @@ function postar() {
     }
 
 
+    if (formConteudo) {
+        let conteudo = document.createElement("p") // criar conteúdo da postagem
+        conteudo.innerHTML = formConteudo // adicionou o conteúdo 
+        conteudo.classList.add('paddingLR')
+        postagem.appendChild(conteudo) // adicionou o conteúdo na postagem 
+    }
 
-    let conteudo = document.createElement("p") // criar conteúdo da postagem
-    conteudo.innerHTML = formConteudo // adicionou o conteúdo 
-    conteudo.classList.add('paddingLR')
-    postagem.appendChild(conteudo) // adicionou o conteúdo na postagem 
-    conteudo.setAttribute("id", "conteudo")
+
+
+    let curtir = document.createElement('button')
+    curtir.classList.add('curtir')
+    curtir.addEventListener('click', function () {
+        let coracao = this.firstElementChild
+        if (this.firstElementChild.src == "file:///media/fuse/crostini_fe2eafeec378a862c624260190defa60d6d25b90_termina_penguin/socialpet/frontend/imagens/notLiked.png") {
+            this.firstElementChild.setAttribute('src', '../imagens/Liked.png')
+        } else {
+            this.firstElementChild.setAttribute('src', '../imagens/notLiked.png')
+        }
+    })
+
+    let curtirImg = document.createElement('img')
+    curtirImg.setAttribute('src', '../imagens/notLiked.png')
+    curtirImg.setAttribute('alt', 'Coração')
+
+    curtir.appendChild(curtirImg)
+
+    postagem.appendChild(curtir)
 
     $('.imgFormDiv').remove()
 }
+
+$('.curtir').click(function (e) {
+
+
+    if (this.firstElementChild.src == "file:///media/fuse/crostini_fe2eafeec378a862c624260190defa60d6d25b90_termina_penguin/socialpet/frontend/imagens/notLiked.png") {
+        this.firstElementChild.setAttribute('src', '../imagens/Liked.png')
+    } else {
+        this.firstElementChild.setAttribute('src', '../imagens/notLiked.png')
+    }
+})

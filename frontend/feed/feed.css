@@ -403,6 +403,16 @@ padding: 2px;
 .curtir {
 	margin-top: 10px;
 	color: #f7b600;
+	width: 50px;
+	outline: none;
+	border: none;
+	background-color: var(--color2);
+	font-size: 1.2rem;
+	margin-left: 15px;
+}
+
+.curtir:hover{
+	
 }
 
 .curtir a:link, a:visited, a:active {
