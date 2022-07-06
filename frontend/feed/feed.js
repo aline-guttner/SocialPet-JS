@@ -189,7 +189,7 @@ function postar() {
     }
 
 
-    dataPost.innerHTML = `postado em ${data.getDate()} de ${mes} de ${data.getFullYear()}`
+    dataPost.innerHTML = `Postado em ${data.getDate()} de ${mes} de ${data.getFullYear()}`
     dataPost.classList.add('paddingLR')
     postagem.appendChild(dataPost)
 
