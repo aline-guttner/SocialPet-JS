@@ -67,44 +67,53 @@ function mostraformulario() { // mostra formulário de postagem
 }
 
 //a função abaixo é para adicionar imagens ao formulário de postagem
-let formImagem = document.getElementById("imagem")
-formImagem.addEventListener('change', function () {
-
-    const chosenFile = this.files[0];//agora só da pra escolher uma imagem, mas depois vou tentar fazer dar pra colocar várias
-
-    const reader = new FileReader();
-    reader.readAsDataURL(chosenFile);
-    if (chosenFile) {
-        reader.addEventListener('load', function () {
-
-            let imgDiv = document.createElement('div')
-            imgDiv.classList.add('imgFormDiv')
-
-            let img = document.createElement('img')
-            img.setAttribute('src', reader.result);
-            img.classList.add('imgFormPostagem')
-            let newid = Math.floor(Math.random() * 10000000)
-            img.setAttribute('id', newid)
-
-            let imgXis = document.createElement('img')// o "x" para excluir a imagem do formulário
-            imgXis.setAttribute('src', '../perfil/x-mark-16.png')
-            imgXis.classList.add('imgXis')
-            imgXis.setAttribute('alt', 'Símbolo em formato de X')
-            imgXis.setAttribute('aria-label', 'Clicar no X exclui a imagem')
-            imgXis.addEventListener('click', function (e) {
-                this.parentNode.remove()// se clicar no "x" ao lado da miniatura de foto, ela é excluída do formulário
-            })
-
-            imgDiv.append(img, imgXis)
-            document.getElementById('divImagemPostar').appendChild(imgDiv)
 
 
-        });
 
-    }
 
+
+$(function () {
+    let formImagem = $("#imagem")
+    formImagem.change(function () {
+        for (let i = 0; i < formImagem[0].files.length; i++) {
+            let chosenFile = this.files[i];// dá pra selecionar várias imagens pra postar de uma só vez pra postagem
+
+            let reader = new FileReader();
+            reader.readAsDataURL(chosenFile);
+            if (chosenFile) {
+                reader.addEventListener('load', function () {
+
+                    let imgDiv = document.createElement('div')
+                    imgDiv.classList.add('imgFormDiv')
+
+                    let img = document.createElement('img')
+                    img.setAttribute('src', reader.result);
+                    img.classList.add('imgFormPostagem')
+                    let newid = Math.floor(Math.random() * 10000000)
+                    img.setAttribute('id', newid)
+
+                    let imgXis = document.createElement('img')// o "x" para excluir a imagem do formulário
+                    imgXis.setAttribute('src', '../perfil/x-mark-16.png')
+                    imgXis.classList.add('imgXis')
+                    imgXis.setAttribute('alt', 'Símbolo em formato de X')
+                    imgXis.setAttribute('aria-label', 'Clicar no X exclui a imagem')
+                    imgXis.addEventListener('click', function (e) {
+                        this.parentNode.remove()// se clicar no "x" ao lado da miniatura de foto, ela é excluída do formulário
+                    })
+
+                    imgDiv.append(img, imgXis)
+                    document.getElementById('divImagemPostar').appendChild(imgDiv)
+
+
+                });
+
+            }
+        }
+
+
+
+    })
 })
-
 
 
 function insertAfter(newNode, existingNode) {
