@@ -388,6 +388,8 @@ function corFeed() {
     let newsOrange = document.getElementById('newsOrange')
     newsWhite.style.display = 'inline';
     newsOrange.style.display = 'none';
+    let bFeed = document.getElementById('bFeed')
+    bFeed.style.color = "var(--color2)"
 }
 
 function corFeed2() {
@@ -395,6 +397,8 @@ function corFeed2() {
     let newsOrange = document.getElementById('newsOrange')
     newsWhite.style.display = 'none';
     newsOrange.style.display = 'inline';
+    let bFeed = document.getElementById('bFeed')
+    bFeed.style.color = "var(--color)"
 }
 
 function corPerfil() {

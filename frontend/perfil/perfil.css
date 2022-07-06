@@ -188,9 +188,7 @@ h5{
     color: var(--color);
 }
 
-.link-feed:hover{
-	color: var(--color2);
-}
+
 
 #logout{
 	border: none;
