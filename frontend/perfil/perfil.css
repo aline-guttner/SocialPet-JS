@@ -179,8 +179,8 @@ h5{
     outline:none !important;
 }
 
-#pawOrange, #pawWhite, #userWhite, #userOrange{
-	margin-bottom: 3px;
+#pawOrange, #pawWhite, #userWhite, #userOrange, #logoutImg{
+	margin-bottom: 5px;
 }
 
 .link-feed{
@@ -191,6 +191,22 @@ h5{
 .link-feed:hover{
 	color: var(--color2);
 }
+
+#logout{
+	border: none;
+	outline: none;
+	background-color: var(--color2);
+	color: var(--color);
+	font-size: 1.2rem;
+	cursor: pointer;
+	text-decoration: none;
+	margin-left: 7px;
+}
+
+#logout:hover{
+	text-decoration: underline;
+}
+
 main{
 	margin-top: 60px!important;
 	margin-left: 0px;
