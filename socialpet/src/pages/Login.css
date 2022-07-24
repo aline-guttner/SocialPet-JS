@@ -1,0 +1,115 @@
+:root{
+    --color: #f7b600;;
+	--color2: white;
+    --EditAndLink: #0362fc;;
+}
+
+*{
+    margin: none;
+    padding:none ;
+}
+
+@media (min-width: 768px) { 
+    body{
+        background-color: var(--color);
+    }
+
+    .login-form{
+        width: 350px!important;
+        height: auto!important;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color2); 
+        
+    }
+}
+
+body{
+    
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.login-form{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+   
+}
+
+.login-form img{
+    margin-bottom: 30px;
+}
+
+.login-form label{
+    color: var(--color);
+    margin-bottom: 20px;
+}
+
+.login-form div{
+    width: 100%;
+}
+
+.login-form input{
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #f7b600 1px solid;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+
+
+.login-button{
+    border: none;
+    outline: none;
+    background-color: var(--color);
+    color: var(--color2);
+    border-radius: 4px;
+    font-size: large;
+    padding: 10px 15px 10px 15px;
+    margin:30px;
+}
+
+.login-button:hover, #login-button:focus{
+    background-color: var(--color2);
+    color: var(--color)!important;
+    border: solid 1px var(--color);
+    cursor: pointer;
+}
+
+.login-form hr{
+    border-top: none;
+    border-bottom: solid 1px var(--color)!important;
+    width: 100%;
+}
+
+.pinscricao{
+    font-size: medium;
+    color: var(--color);
+}
+
+.inscricao{
+    border: none;
+    outline: none;
+    background-color: var(--color2);
+    color:var(--EditAndLink);
+    font-size: medium;
+    text-decoration: none;
+}
+
+
+.inscricao:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
