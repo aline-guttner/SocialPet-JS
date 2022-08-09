@@ -40,6 +40,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         // required: true,
         default: "(00)0000-0000"
+    },
+    backImg: {
+        type: String,
+        default: ""
+    },
+    profileImg: {
+        type: String,
+        default: ""
     }
 
 })
