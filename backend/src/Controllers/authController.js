@@ -82,6 +82,7 @@ class AuthController {
             return res.status(500).json({ message: err.message })
         }
     }
+    
 
     static updateUser = async (req, res) => {
         let user

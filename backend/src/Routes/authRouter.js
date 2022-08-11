@@ -14,6 +14,8 @@ router.get('/', Authcontroller.getAllUsers)
 
 router.get('/:id', Authcontroller.getOneUser)
 
+router.get('/:id', Authcontroller.getOneUser)
+
 router.patch('/:id', Authcontroller.updateUser)
 
 router.delete('/:id', Authcontroller.deleteUser)

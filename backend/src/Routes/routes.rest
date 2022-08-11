@@ -1,12 +1,12 @@
-GET http://localhost:3000/auth/userhome
+GET http://localhost:8000/auth/userhome
 
 ###
 
-GET http://localhost:3000/auth/
+GET http://localhost:8000/auth/
 
 ###
 
-POST http://localhost:3000/auth/register
+POST http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
@@ -17,11 +17,15 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
+GET http://localhost:8000/auth/62f545dce5a155d7d83582b3
 
 ###
 
-PATCH http://localhost:3000/auth/62bba8d8e274f532e1e00a0b
+GET http://localhost:8000/auth/alcegatto@gmail.com
+
+###
+
+PATCH http://localhost:8000/auth/62bba8d8e274f532e1e00a0b
 Content-Type: application/json
 
 {
@@ -31,11 +35,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/auth/62bb4b32e65016fb7bbbc80d
+DELETE http://localhost:8000/auth/62bb4b32e65016fb7bbbc80d
 
 ###
 
-POST http://localhost:3000/auth/register
+POST http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
@@ -45,7 +49,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/auth/login
+POST http://localhost:8000/auth/login
 Content-Type: application/json
 
     {
@@ -55,7 +59,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/posts/
+POST http://localhost:8000/posts/
 Content-Type: application/json
 
 {
@@ -65,15 +69,15 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/posts/
+GET http://localhost:8000/posts/
 
 ###
 
-GET http://localhost:3000/posts/62bb924e8420afaa8cae8a41
+GET http://localhost:8000/posts/62bb924e8420afaa8cae8a41
 
 ###
 
-PATCH http://localhost:3000/posts/62bb9ac7f4575d5388d87859
+PATCH http://localhost:8000/posts/62bb9ac7f4575d5388d87859
 Content-Type: application/json
 
 {
@@ -82,4 +86,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/posts/62bb924e8420afaa8cae8a41
+DELETE http://localhost:8000/posts/62bb924e8420afaa8cae8a41
