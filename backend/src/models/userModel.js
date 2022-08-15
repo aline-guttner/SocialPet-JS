@@ -1,7 +1,6 @@
 // const mongoose = require('mongoose')
 import mongoose from "mongoose"
 import bcrypt from "bcryptjs"
-import { v4 as uuidv4 } from "uuid";
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -32,20 +31,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
     },
-    pets: { type: [{
-        petName: String,
-            petType: String,
-        petImg: String,
-        petId: String  
-        
-    }],
-    default: {
-        petName: 'Catoso',
-        petType: 'Gato',
-        petImg: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80",
-        petId: uuidv4()
-    }
-
+    pets: {
+        type: Array,
+        default: ["62fa7e52ec8cd8836f7a8dba","62fa8b38ec8cd8836f7a8dc1" ]
     },
     phone: {
         type: String,
