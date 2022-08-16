@@ -29,11 +29,11 @@ const userSchema = new mongoose.Schema({
     },
     profileImg: {
         type: String,
-        default: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+        default: ""
     },
     pets: {
         type: Array,
-        default: ["62fa7e52ec8cd8836f7a8dba","62fa8b38ec8cd8836f7a8dc1" ]
+        default: ["62fbf765ec8cd8836f7a8df","62fbf765ec8cd8836f7a8dff","62fbf765ec8cd8836f7a8e00","62fbf864ec8cd8836f7a8e03" ]
     },
     phone: {
         type: String,
