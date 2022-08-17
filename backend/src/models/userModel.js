@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
     },
     pets: {
         type: Array,
-        default: ["62fbf765ec8cd8836f7a8df","62fbf765ec8cd8836f7a8dff","62fbf765ec8cd8836f7a8e00","62fbf864ec8cd8836f7a8e03" ]
+        default: ["62fbf765ec8cd8836f7a8dfe","62fbf864ec8cd8836f7a8e04","62fbf864ec8cd8836f7a8e05"]
     },
     phone: {
         type: String,
