@@ -1,9 +1,19 @@
 import Pet from "../models/petModel.js"
+import User from "../models/userModel.js"
 
 class petController{
     static createPet = async (req,res) =>{
-        const pet = await Pet.create(request.body)
-        return response.status(200).send({ pet })
+        const pet = await Pet.create(req.body)
+        const user = await User.findById(pet.userId)
+
+        if (user == null){
+            return res.status(404).json({ message: 'Cannot find user' })
+        }
+
+        res.user = user
+        res.user.pets =[...user.pets, pet.id]
+        await res.user.save()
+        return res.status(200).send({ pet })
     }
 
     static getOnePet = async (req, res) => {
@@ -21,16 +31,19 @@ class petController{
 
     static updatePet = async (req, res) => {
         let pet
+       
         try {
             pet = await Pet.findById(req.params.id)
+            
             if (pet == null) {
                 return res.status(404).json({ message: 'Cannot find pet' })
-
             }
+          
         } catch (err) {
             return res.status(500).json({ message: err.message })
         }
         res.pet = pet
+        
         if (req.body.petName != null) {
             res.pet.petName = req.body.petName
         }
@@ -50,18 +63,26 @@ class petController{
 
     static deletePet = async (req, res) => {
         let pet
+        let user
         try {
             pet = await Pet.findById(req.params.id)
             if (pet == null) {
                 return res.status(404).json({ message: 'Cannot find pet' })
+            }
 
+            user = await User.findById(pet.userId)
+            if (user == null) {
+                return res.status(404).json({ message: 'Cannot find user' })
             }
         } catch (err) {
             return res.status(500).json({ message: err.message })
         }
         res.pet = pet
+        res.user = user
+        res.user.pets = user.pets.filter(animal=> animal !== pet.id)
         try {
             await res.pet.remove()
+            await res.user.save()
             res.json({ message: "Deleted pet" })
         } catch (err) {
             res.status(500).json({ message: err.message })
